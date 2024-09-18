@@ -1,0 +1,26 @@
+@import "../../../styles/shared-styles.scss";
+.container-fluid {
+  background-color: white !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.btn-primary {
+  background-color: $shopapp-color;
+  border-color: $shopapp-color;
+}
+.btn.btn-primary {
+  margin-left: 10px;
+}
+table th td {
+  text-align: center;
+  width: 100vh;
+  height: 100vh;
+}
+th {
+  font-size: 14px;
+  padding: 7px;
+}
+td {
+  font-size: 14px;
+  padding: 7px;
+}

@@ -1,0 +1,57 @@
+<div class="mx-auto">
+  <header
+    class="header text-white flex justify-between items-center bg-blue-700 p-4"
+  >
+    <h1 class="header-title text-2xl font-bold">Dashboard Admin</h1>
+    <button
+      class="btn btn-danger btn-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </header>
+  <div class="flex flex-wrap bg-gray-100">
+    <nav id="sidebar" class="w-full md:w-1/4 lg:w-1/5 bg-white shadow-md">
+      <div class="position-sticky p-4">
+        <ul class="nav flex flex-col space-y-2">
+          <li class="nav-item">
+            <a
+              class="nav-link flex items-center space-x-2 text-gray-700 hover:text-blue-700 cursor-pointer"
+              (click)="showAdminComponent('orders')"
+            >
+              <i class="fa-brands fa-first-order"></i> <span>Orders</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link flex items-center space-x-2 text-gray-700 hover:text-blue-700 cursor-pointer"
+              (click)="showAdminComponent('categories')"
+            >
+              <i class="fa-brands fa-canadian-maple-leaf"></i>
+              <span>Categories</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link flex items-center space-x-2 text-gray-700 hover:text-blue-700 cursor-pointer"
+              (click)="showAdminComponent('products')"
+            >
+              <i class="fa-brands fa-codepen"></i> <span>Products</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link flex items-center space-x-2 text-gray-700 hover:text-blue-700 cursor-pointer"
+              (click)="showAdminComponent('users')"
+            >
+              <i class="fa-brands fa-codepen"></i> <span>Users</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="w-full md:w-3/4 lg:w-4/5 p-2">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

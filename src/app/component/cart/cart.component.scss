@@ -1,0 +1,141 @@
+.banner {
+  background-image: url(/assets/imgs/banner_2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 316px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content > h3 {
+  font-size: 40px;
+  color: #000;
+  font-weight: bold;
+}
+.content a {
+  text-decoration: none;
+  color: #000;
+}
+.cart {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  gap: 40px;
+}
+.img-cart {
+  width: 100px;
+  border-radius: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th {
+  background-color: #f9f1e7;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 20px;
+  width: 40px;
+}
+table td {
+  font-size: 16px;
+  padding: 15px 15px;
+  text-align: center;
+  color: #9f9f9f;
+}
+table td:nth-child(5) {
+  color: #000;
+  font-weight: bolder;
+}
+table td:nth-child(4) > input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #9f9f9f;
+  border-radius: 5px;
+}
+
+.cart-total {
+  background-color: #f9f1e7;
+  width: 30%;
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.checkout {
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid #000;
+  font-weight: 600;
+}
+.subtotal-price {
+  color: #9f9f9f;
+  margin: 10px;
+}
+.total-price {
+  color: #b88e2f;
+  font-weight: 600;
+  margin: 20px;
+}
+.achievements {
+  background-color: #faf3ea;
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+.btn-quantity {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #000;
+  background-color: transparent;
+}
+.ip-quantity {
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  width: 40px;
+}
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a background overlay */
+  z-index: 50; /* Ensure it is above other content */
+}
+.loader {
+  z-index: 1;
+  border: 16px solid #d9d9d9; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 2s linear infinite;
+}
+.icon-remove:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

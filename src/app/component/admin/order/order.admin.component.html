@@ -1,0 +1,112 @@
+<div class="">
+  <h3>Admin Orders</h3>
+
+  <div class="overflow-x-auto shadow-md sm:rounded-lg">
+    <table
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th class="px-6 py-3">User_ID</th>
+          <th class="px-6 py-3">Full_name</th>
+          <th class="px-6 py-3">Email</th>
+          <th class="px-6 py-3">Phone Number</th>
+          <th class="px-6 py-3">Address</th>
+
+          <th class="px-6 py-3">Total Money</th>
+          <th class="px-6 py-3">Shipping Method</th>
+          <th class="px-6 py-3">Payment Method</th>
+          <th class="px-6 py-3">Shipping Address</th>
+          <th class="px-6 py-3">Shipping Date</th>
+          <th class="px-6 py-3"></th>
+        </tr>
+      </thead>
+
+      <tr
+        *ngFor="let order of orders"
+        class="relative odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+      >
+        <td>{{ order.user_id }}</td>
+        <td>{{ order.full_name }}</td>
+        <td>{{ order.email }}</td>
+        <td>{{ order.phone_number }}</td>
+        <td>{{ order.address }}</td>
+
+        <td>{{ order.total_money }}</td>
+        <td>{{ order.shipping_method }}</td>
+        <td>{{ order.payment_method }}</td>
+        <td>{{ order.shipping_address }}</td>
+        <td>
+          {{ order.shipping_date.toLocaleDateString() }}
+        </td>
+        <td>{{ order.tracking_number }}</td>
+
+        <td class="px-6 py-4 flex gap-3">
+          <button
+            nz-button
+            nzType="dashed"
+            (click)="viewDetails(order)"
+            class="z-50 bg-blue-500 text-white rounded-md py-2 px-4"
+          >
+            Details
+          </button>
+          <button
+            (click)="onRemove(order.id)"
+            class="bg-red-500 text-white rounded-lg p-3"
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="flex justify-center mt-4">
+    <nav aria-label="Page navigation">
+      <ul class="inline-flex items-center -space-x-px">
+        <li *ngIf="currentPage > 1">
+          <a
+            class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+            (click)="onPageChange(1)"
+            >First</a
+          >
+        </li>
+        <li *ngIf="currentPage > 1">
+          <a
+            class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+            (click)="onPageChange(currentPage - 1)"
+            >Previous</a
+          >
+        </li>
+        <ng-container *ngFor="let page of visiblePages">
+          <li
+            [ngClass]="{
+              'active bg-blue-500 text-white': page === currentPage
+            }"
+          >
+            <a
+              class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+              (click)="onPageChange(page)"
+              >{{ page }}</a
+            >
+          </li>
+        </ng-container>
+        <li *ngIf="currentPage < totalPages">
+          <a
+            class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+            (click)="onPageChange(currentPage + 1)"
+            >Next</a
+          >
+        </li>
+        <li *ngIf="currentPage < totalPages">
+          <a
+            class="py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+            (click)="onPageChange(totalPages)"
+            >Last</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

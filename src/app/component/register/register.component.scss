@@ -1,0 +1,91 @@
+// .login {
+//   background: #8e9eab; /* fallback for old browsers */
+//   background: -webkit-linear-gradient(
+//     to right,
+//     #eef2f3,
+//     #8e9eab
+//   ); /* Chrome 10-25, Safari 5.1-6 */
+//   background: linear-gradient(
+//     to right,
+//     #eef2f3,
+//     #8e9eab
+//   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//   min-height: 100vh;
+//   height: auto;
+// }
+// .form-login {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+// .form {
+//   background-color: #eef2f3;
+//   width: 430px;
+//   height: auto;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   border-radius: 10px;
+// }
+// .form h2 {
+//   font-size: 30px;
+//   color: #000;
+//   font-weight: bold;
+//   margin-top: 20px;
+// }
+// .form input {
+//   width: 350px;
+//   height: 40px;
+//   border: none;
+//   border-radius: 5px;
+//   margin-top: 10px;
+//   padding: 10px;
+// }
+// .form-group {
+//   margin-top: 20px;
+// }
+// .remember {
+//   display: flex;
+//   align-items: center;
+//   margin-top: 10px;
+//   gap: 100px;
+// }
+// .remember input {
+//   width: 30px;
+//   height: 20px;
+// }
+// .remember label {
+//   position: relative;
+//   top: 3px;
+// }
+// .remember a {
+//   text-decoration: none;
+//   color: #000;
+//   position: relative;
+//   top: 3px;
+// }
+// .remember a:hover {
+//   color: #b88e2f;
+// }
+// .btn-login {
+//   background-color: #b88e2f;
+//   padding: 10px 50px;
+//   color: white;
+//   border: transparent;
+//   border-radius: 10px;
+//   margin-top: 20px;
+//   margin-bottom: 30px;
+// }
+// .form-check-input {
+//   position: relative;
+//   top: -6px;
+//   right: 5px;
+//   width: 20px !important;
+//   height: 20px !important;
+// }
+
+.is-invalid {
+  border: 1px solid red;
+}

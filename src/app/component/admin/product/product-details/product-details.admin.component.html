@@ -1,0 +1,129 @@
+<div class="p-4">
+  <div class="ant-page-header">
+    <h1 class="text-xl font-bold mb-4">Detail Product Admin</h1>
+  </div>
+  <h1 class="text-lg font-semibold mb-4">Product Information</h1>
+  <div class="container" *ngIf="product">
+    <div class="col">
+      <div class="grid grid-cols-6 mb-4">
+        <label
+          ><span class="font-bold">Product ID:</span> {{ product.id }}</label
+        >
+      </div>
+      <div class="grid grid-cols-6 mb-4">
+        <label *ngIf="!editButton">
+          <span class="font-bold">Product Name:</span> {{ product.name }}
+        </label>
+        <span class="font-bold" *ngIf="editButton">
+          Product Name:
+          <input
+            type="text"
+            [placeholder]="product.name"
+            [(ngModel)]="product.name"
+            class="border rounded p-1"
+          />
+        </span>
+      </div>
+      <div class="grid grid-cols-6 mb-4">
+        <label *ngIf="!editButton">
+          <span class="font-bold">Price:</span> {{ product.price }}
+        </label>
+        <span class="font-bold" *ngIf="editButton">
+          Price:
+          <input
+            type="text"
+            [placeholder]="product.price"
+            [(ngModel)]="product.price"
+            class="border rounded p-1"
+          />
+        </span>
+      </div>
+      <div class="grid grid-cols-4 mb-4">
+        <label *ngIf="!editButton">
+          <span class="font-bold">Description:</span> {{ product.description }}
+        </label>
+        <span class="font-bold" *ngIf="editButton">
+          Description:
+          <input
+            type="text"
+            [placeholder]="product.description"
+            [(ngModel)]="product.description"
+            class="border rounded p-1"
+          />
+        </span>
+      </div>
+
+      <div class="grid grid-cols-4 mb-4">
+        <label *ngIf="!editButton">
+          <span class="font-bold">Size:</span>
+          {{ product.product_sizes[0].size }}
+        </label>
+        <span class="font-bold" *ngIf="editButton">
+          Size:
+          <input
+            type="text"
+            [placeholder]="product.product_sizes[0].size"
+            [(ngModel)]="product.product_sizes[0].size"
+            class="border rounded p-1"
+          />
+        </span>
+      </div>
+      <div class="grid grid-cols-4 mb-4">
+        <label *ngIf="!editButton">
+          <span class="font-bold">Category ID:</span> {{ product.category_id }}
+        </label>
+        <span class="font-bold" *ngIf="editButton">
+          Category ID:
+          <input
+            type="text"
+            [placeholder]="product.category_id"
+            [(ngModel)]="product.category_id"
+            class="border rounded p-1"
+          />
+        </span>
+      </div>
+      <div class="flex">
+        <div *ngFor="let image of product.product_images; let i = index">
+          <img class="product-image" [src]="image.image_url" alt="" />
+        </div>
+      </div>
+
+      <hr class="mb-4" />
+      <div class="flex gap-5">
+        <div class="">
+          <button
+            class="bg-blue-500 text-white rounded py-2 px-4"
+            (click)="saveProduct()"
+          >
+            Save
+          </button>
+        </div>
+        <div class="">
+          <button
+            class="bg-blue-500 text-white rounded py-2 px-4"
+            [(ngModel)]="editButton"
+            (click)="clickEditButton()"
+          >
+            Edit
+          </button>
+        </div>
+        <div class="flex">
+          <input
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            id="file_input"
+            type="file"
+            multiple
+            (change)="onFileSelected($event)"
+          />
+          <button
+            (click)="uploadImage()"
+            *ngIf="checkImage"
+            class="bg-blue-400 rounded-sm p-2"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

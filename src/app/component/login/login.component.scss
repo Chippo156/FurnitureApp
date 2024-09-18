@@ -1,0 +1,94 @@
+.login {
+  background: #8e9eab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #eef2f3,
+    #8e9eab
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #eef2f3,
+    #8e9eab
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+}
+.form-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.form {
+  background-color: #eef2f3;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+.form h2 {
+  font-size: 30px;
+  color: #000;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.form input {
+  width: 350px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+}
+.form-group {
+  margin-top: 20px;
+}
+.remember {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 100px;
+}
+.remember input {
+  width: 30px;
+  height: 20px;
+}
+.remember label {
+  position: relative;
+  top: 3px;
+}
+.remember a {
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  top: 3px;
+}
+.remember a:hover {
+  color: #b88e2f;
+}
+.btn-login {
+  background-color: #b88e2f;
+  padding: 10px 50px;
+  color: white;
+  border: transparent;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.login-with {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  width: 150px;
+  justify-content: center;
+}
+.login-with > img {
+  width: 30px;
+}
