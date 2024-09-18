@@ -7,7 +7,7 @@
     <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="/assets/imgs/chippo.jpg" width="80" alt="Logo" />
       <span
-        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+        class="self-center text-4xl font-bold whitespace-nowrap dark:text-white"
         >Chippo</span
       >
     </a>
@@ -131,7 +131,7 @@
         <li>
           <a
             routerLink="/product-favorite"
-            class="block py-2 px-3 rounded text-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+            class="block py-2 px-3 rounded"
             aria-current="page"
             ><i class="fa-solid fa-heart fa-lg" style="color: #e92b16"></i
           ></a>
@@ -139,10 +139,24 @@
         <li>
           <a
             routerLink="/cart"
-            class="block py-2 px-3 rounded text-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+            class="flex items-center gap-3 py-2 px-3 rounde md:bg-transparent"
             aria-current="page"
-            ><i class="fa-solid fa-cart-shopping fa-lg"></i
-          ></a>
+            ><svg
+              class="svg-ico-cart"
+              enable-background="new 0 0 512 512"
+              height="40"
+              viewBox="0 0 512 512"
+              width="30"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="m472 452c0 11.046-8.954 20-20 20h-20v20c0 11.046-8.954 20-20 20s-20-8.954-20-20v-20h-20c-11.046 0-20-8.954-20-20s8.954-20 20-20h20v-20c0-11.046 8.954-20 20-20s20 8.954 20 20v20h20c11.046 0 20 8.954 20 20zm0-312v192c0 11.046-8.954 20-20 20s-20-8.954-20-20v-172h-40v60c0 11.046-8.954 20-20 20s-20-8.954-20-20v-60h-192v60c0 11.046-8.954 20-20 20s-20-8.954-20-20v-60h-40v312h212c11.046 0 20 8.954 20 20s-8.954 20-20 20h-232c-11.046 0-20-8.954-20-20v-352c0-11.046 8.954-20 20-20h60.946c7.945-67.477 65.477-120 135.054-120s127.109 52.523 135.054 120h60.946c11.046 0 20 8.954 20 20zm-121.341-20c-7.64-45.345-47.176-80-94.659-80s-87.019 34.655-94.659 80z"
+                ></path>
+              </g>
+            </svg>
+            <div>Cart</div>
+          </a>
         </li>
       </ul>
     </div>
@@ -157,7 +171,7 @@
           <a
             (click)="navigateItem('Home')"
             routerLink="/"
-            class="itemNav block py-2 px-3 text-gray-900 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+            class="itemNav block mr-5 py-2 px-5 text-gray-900 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
             aria-current="page"
             >Home</a
           >
@@ -166,14 +180,14 @@
           <a
             (click)="navigateItem('Shop')"
             routerLink="/products"
-            class="itemNav block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            class="itemNav block mr-5 py-2 px-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >Shop</a
           >
         </li>
         <li>
           <a
             (click)="navigateItem('About')"
-            class="itemNav block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            class="itemNav block mr-5 py-2 px-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >About</a
           >
         </li>
@@ -181,7 +195,7 @@
           <a
             (click)="navigateItem('Contact')"
             routerLink="/contact"
-            class="itemNav block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            class="itemNav block mr-5 py-2 px-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >Contact</a
           >
         </li>
