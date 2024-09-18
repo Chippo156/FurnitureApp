@@ -1,0 +1,269 @@
+2024-09-06 20:02:58.436 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-06 20:02:58.489 [main] INFO  o.e.ecommerce.EcommerceApplication - Starting EcommerceApplication using Java 21.0.2 with PID 18336 (D:\docker-project\ecommerce\target\classes started by hiep in D:\docker-project\ecommerce)
+2024-09-06 20:02:58.490 [main] INFO  o.e.ecommerce.EcommerceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 20:02:59.879 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-06 20:02:59.881 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 20:03:00.167 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 278 ms. Found 15 JPA repository interfaces.
+2024-09-06 20:03:00.194 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-06 20:03:00.196 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-09-06 20:03:00.218 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.218 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.ClassifyColorRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.218 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.CommentImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.219 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.CommentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.219 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.CouponRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.219 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.OrderDetailRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.219 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.220 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.ProductImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.220 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.220 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.ProductSaleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.221 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.221 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.SizeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.222 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.SocialAccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.222 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.222 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.ecommerce.ecommerce.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-09-06 20:03:00.222 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2024-09-06 20:03:01.316 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2024-09-06 20:03:01.328 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-09-06 20:03:01.330 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-09-06 20:03:01.330 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-09-06 20:03:01.394 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-09-06 20:03:01.395 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2847 ms
+2024-09-06 20:03:01.597 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 20:03:01.706 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-06 20:03:01.762 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-09-06 20:03:02.182 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 20:03:02.212 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-09-06 20:03:02.550 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ab85862
+2024-09-06 20:03:02.551 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-09-06 20:03:02.693 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 20:03:02.694 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 20:03:04.565 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 20:03:04.568 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 20:03:04.914 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-09-06 20:03:06.503 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.apache.logging.log4j.Logger org.ecommerce.ecommerce.services.impl.UserService.logger
+2024-09-06 20:03:06.749 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 20:03:07.854 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-09-06 20:03:07.868 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2024-09-06 20:03:07.876 [main] INFO  o.e.ecommerce.EcommerceApplication - Started EcommerceApplication in 9.991 seconds (process running for 12.074)
+2024-09-06 20:07:36.953 [http-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-06 20:07:36.959 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-09-06 20:07:37.080 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 118 ms
+2024-09-06 20:07:37.357 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: countNumberOfProduct
+2024-09-06 20:07:37.374 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getAllCategories
+2024-09-06 20:07:37.378 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getAllProducts
+2024-09-06 20:07:38.132 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: countNumberOfProduct
+2024-09-06 20:07:38.133 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of countNumberOfProduct is 779 ms
+2024-09-06 20:07:39.092 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getAllCategories
+2024-09-06 20:07:39.092 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getAllCategories is 1717 ms
+2024-09-06 20:07:39.210 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getAllProducts
+2024-09-06 20:07:39.210 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getAllProducts is 1832 ms
+2024-09-06 20:07:39.269 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getRatingProducts
+2024-09-06 20:07:39.403 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getRatingProducts
+2024-09-06 20:07:39.403 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getRatingProducts is 132 ms
+2024-09-06 20:07:39.436 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.436 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.436 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.436 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.437 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.437 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.442 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.442 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.442 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.442 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.442 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 5 ms
+2024-09-06 20:07:39.442 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.442 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 5 ms
+2024-09-06 20:07:39.442 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.443 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 6 ms
+2024-09-06 20:07:39.442 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 6 ms
+2024-09-06 20:07:39.443 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 5 ms
+2024-09-06 20:07:39.442 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 6 ms
+2024-09-06 20:07:39.463 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.464 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.465 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.465 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 2 ms
+2024-09-06 20:07:39.467 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.467 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 2 ms
+2024-09-06 20:07:39.473 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.473 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.474 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.474 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:07:39.476 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.476 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:07:39.475 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.477 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 3 ms
+2024-09-06 20:07:39.477 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.478 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 2 ms
+2024-09-06 20:07:39.479 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:07:39.479 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 3 ms
+2024-09-06 20:08:01.675 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getAllProducts
+2024-09-06 20:08:01.676 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: countNumberOfProduct
+2024-09-06 20:08:01.677 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getAllCategories
+2024-09-06 20:08:01.699 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getAllCategories
+2024-09-06 20:08:01.699 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getAllCategories is 22 ms
+2024-09-06 20:08:01.700 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: countNumberOfProduct
+2024-09-06 20:08:01.701 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of countNumberOfProduct is 23 ms
+2024-09-06 20:08:01.705 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getAllProducts
+2024-09-06 20:08:01.705 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getAllProducts is 29 ms
+2024-09-06 20:08:01.723 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getRatingProducts
+2024-09-06 20:08:01.730 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.732 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.732 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 2 ms
+2024-09-06 20:08:01.733 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.733 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.733 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.733 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.734 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.734 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.734 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.734 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.735 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.735 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.735 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.735 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.744 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.745 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.745 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.745 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.745 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.745 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.747 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.747 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.748 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.748 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.748 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 1 ms
+2024-09-06 20:08:01.748 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 1 ms
+2024-09-06 20:08:01.751 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.753 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.753 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 1 ms
+2024-09-06 20:08:01.755 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.755 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.756 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.756 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.756 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.756 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.764 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.764 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.764 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.765 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.765 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.765 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.766 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 1 ms
+2024-09-06 20:08:01.766 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:01.767 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.767 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:01.767 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:01.767 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 3 ms
+2024-09-06 20:08:01.769 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getRatingProducts
+2024-09-06 20:08:01.776 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getRatingProducts is 47 ms
+2024-09-06 20:08:12.612 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: countNumberOfProduct
+2024-09-06 20:08:12.612 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getAllCategories
+2024-09-06 20:08:12.612 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getAllProducts
+2024-09-06 20:08:12.624 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getAllCategories
+2024-09-06 20:08:12.624 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getAllCategories is 11 ms
+2024-09-06 20:08:12.628 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getAllProducts
+2024-09-06 20:08:12.628 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getAllProducts is 15 ms
+2024-09-06 20:08:12.629 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: countNumberOfProduct
+2024-09-06 20:08:12.629 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of countNumberOfProduct is 17 ms
+2024-09-06 20:08:12.649 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getRatingProducts
+2024-09-06 20:08:12.655 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getRatingProducts
+2024-09-06 20:08:12.655 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getRatingProducts is 6 ms
+2024-09-06 20:08:12.658 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.658 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.658 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:12.660 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.661 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.662 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.662 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 1 ms
+2024-09-06 20:08:12.662 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.662 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:12.663 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.663 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.664 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.664 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.664 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:12.664 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:12.665 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.665 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.665 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.665 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.665 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:12.665 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:12.677 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.677 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.678 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.678 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:12.679 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.679 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.679 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.679 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.679 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 2 ms
+2024-09-06 20:08:12.679 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:12.679 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:12.680 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.681 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:12.681 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 2 ms
+2024-09-06 20:08:12.683 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 4 ms
+2024-09-06 20:08:14.316 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: countNumberOfProduct
+2024-09-06 20:08:14.317 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getAllCategories
+2024-09-06 20:08:14.322 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getAllProducts
+2024-09-06 20:08:16.430 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getAllCategories
+2024-09-06 20:08:16.430 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getAllCategories is 2112 ms
+2024-09-06 20:08:16.462 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: countNumberOfProduct
+2024-09-06 20:08:16.462 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of countNumberOfProduct is 2146 ms
+2024-09-06 20:08:16.467 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getAllProducts
+2024-09-06 20:08:16.467 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getAllProducts is 2145 ms
+2024-09-06 20:08:16.477 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: getRatingProducts
+2024-09-06 20:08:16.481 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.482 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.482 [http-nio-8088-exec-6] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.481 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.482 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.482 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.485 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.488 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.488 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 2 ms
+2024-09-06 20:08:16.490 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.490 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.491 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.491 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.492 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.492 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.494 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.494 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: getRatingProducts
+2024-09-06 20:08:16.494 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of getRatingProducts is 16 ms
+2024-09-06 20:08:16.494 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.494 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.499 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.500 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.500 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.500 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.500 [http-nio-8088-exec-9] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 1 ms
+2024-09-06 20:08:16.500 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.500 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.500 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.502 [http-nio-8088-exec-3] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.507 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.508 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.508 [http-nio-8088-exec-8] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.510 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.510 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.510 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.510 [http-nio-8088-exec-2] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.510 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.510 [http-nio-8088-exec-7] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.513 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.513 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.514 [http-nio-8088-exec-4] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:16.515 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.516 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.516 [http-nio-8088-exec-10] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 1 ms
+2024-09-06 20:08:16.524 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.525 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.525 [http-nio-8088-exec-5] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 2 ms
+2024-09-06 20:08:16.526 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method started: viewImage
+2024-09-06 20:08:16.526 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Method finished: viewImage
+2024-09-06 20:08:16.526 [http-nio-8088-exec-1] INFO  o.e.e.c.aspects.PerformaceLogger - Execution time of viewImage is 0 ms
+2024-09-06 20:08:44.353 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 20:08:44.564 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-09-06 20:08:44.673 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,0 +1,79 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: ecommerce
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/eCommerce?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    username: root
+    password: ${MYSQL_ROOT_PASSWORD:Abc123456789@}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/eCommerce}
+  #    username: postgres
+  #    password: 12345678
+  #    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 416215036097-4ohfpq57le2nujo89jpg1u20lqnhjaie.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+          facebook:
+            client-id: 452880654386797
+            client-secret: 448b2c68f3522f9cb9b3aa7d6a1ac333
+            scope:
+              - email
+              - public_profile
+          github:
+            client-id: Ov23li41nPCmUpuGGQBF
+            client-secret:  e02fae1ef78125e65222edef7de0071da46040f0
+            scope:
+              - user:email
+              - read:user
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  data:
+    redis:
+      use-redis-cache: false
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+api:
+  prefix: api/v1
+
+jwt:
+  expiration: 2592000
+  expirationRefreshToken: 5184000
+  secretKey: hfVj450p2BKXQ4Vy4Jtxf/lrUISk2UG45Yi6Uu2vecU=
+
+logging:
+  level:
+    org.springframework.security: off
+
+payment:
+  vnPay:
+    url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+    tmnCode: 58X4B4HP
+    hashSecret: VRLDWNVWDNPCOEPBZUTWSEDQAGXJCNGZ
+    returnUrl: http://localhost:8088/api/v1/payment/vnpay-callback
+    version: 2.1.0
+    command: pay
+    order_type: other
