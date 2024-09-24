@@ -190,12 +190,6 @@
             (click)="checkPassword()"
             name="password_confirm"
             placeholder="Enter your confirm password"
-            [class.is-invalid]="
-              registerForm.controls['password_confirm'].hasError(
-                'invalidPassword'
-              ) && registerForm.form.touched
-            "
-            required
           />
           <div class="my-2"></div>
           <p

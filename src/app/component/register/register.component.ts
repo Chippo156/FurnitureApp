@@ -39,6 +39,7 @@ export class RegisterComponent {
     console.log(`Phone number: ${this.phoneNumber}`);
   }
   register() {
+    debugger;
     const registerDto: RegisterDto = {
       fullname: this.name,
       phone_number: this.phoneNumber,

@@ -55,7 +55,7 @@
           </div>
           <div class="filter flex-1 lg:w-1/4">
             <div class="filter-title flex items-center justify-between">
-              <div>Giá sản phẩm</div>
+              <div>Price</div>
               <i class="fa-solid fa-angle-down"></i>
             </div>
             <div class="menu-filter">
@@ -114,7 +114,7 @@
           </div>
           <div class="filter flex-1 lg:w-1/4">
             <div class="filter-title flex items-center justify-between">
-              <div>Màu sắc</div>
+              <div>Colors</div>
               <i class="fa-solid fa-angle-down"></i>
             </div>
             <div class="menu-filter">
@@ -222,8 +222,9 @@
               {{ formatQuantity(getSoldQuantity(product.id)) }}
             </span>
             <i
-              (click)="addFavorite(product.id)"
-              class="fa-regular fa-heart"
+              [id]="'heart' + product.id"
+              (click)="addAndRemoveFavorite(product.id)"
+              class="fa-solid fa-heart text-purple-300"
             ></i>
           </div>
         </div>

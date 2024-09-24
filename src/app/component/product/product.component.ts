@@ -2,6 +2,7 @@ import {
   Component,
   OnInit,
   QueryList,
+  Renderer2,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -50,13 +51,14 @@ export class ProductComponent implements OnInit {
   checkLoad: boolean = false;
   colors: Set<string> = new Set();
   selectedCheckboxes: Set<number> = new Set();
-
+  product_favorite: Set<number> = new Set<number>();
   constructor(
     private router: Router,
     private productService: ProductService,
     private commentService: CommmentService,
     private orderService: OrderService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private renderer: Renderer2
   ) {
     this.selectedCategoryId = 0;
     this.keyword = '';
@@ -408,10 +410,7 @@ export class ProductComponent implements OnInit {
       this.products = this.productsFilter;
     }
   }
-  addFavorite(productId: number) {
-    const heart = document.querySelector('.fa-heart');
-    heart?.classList.add('addFavorite');
-  }
+
   getAllCategory() {
     this.categoryService.getAllCategories('', 0, 10).subscribe({
       next: (response: any) => {
@@ -448,5 +447,55 @@ export class ProductComponent implements OnInit {
     this.products = this.productsFilter;
     this.selectedCheckboxes.clear();
     this.checkColor = '';
+  }
+  addFavorite(productId: number) {
+    this.product_favorite.add(productId);
+    localStorage.setItem(
+      'product_favorite',
+      JSON.stringify(Array.from(this.product_favorite))
+    );
+    const heartElement = document.getElementById('heart' + productId);
+    if (heartElement) {
+      heartElement.setAttribute('style', 'color: red');
+    } else {
+      console.log('Element not found');
+    }
+  }
+  addAndRemoveFavorite(id: number) {
+    let flag = false;
+    this.product_favorite.forEach((productId) => {
+      const heartElement = this.renderer.selectRootElement(
+        '#heart' + productId,
+        true
+      );
+      if (heartElement && id === productId) {
+        flag = true;
+        this.renderer.setStyle(heartElement, 'color', '#cabffd');
+        this.product_favorite.delete(productId);
+        localStorage.setItem(
+          'product_favorite',
+          JSON.stringify(Array.from(this.product_favorite))
+        );
+        return;
+      } else {
+        console.log('Elememt not found');
+      }
+    });
+    if (flag == false) {
+      this.addFavorite(id);
+    }
+  }
+  viewFavorite() {
+    this.product_favorite.forEach((productId) => {
+      const heartElement = this.renderer.selectRootElement(
+        '#heart' + productId,
+        true
+      );
+      if (heartElement) {
+        this.renderer.setStyle(heartElement, 'color', 'red');
+      } else {
+        console.log('Element not found');
+      }
+    });
   }
 }
