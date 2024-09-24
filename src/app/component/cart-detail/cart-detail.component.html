@@ -123,7 +123,7 @@
                 "
                 class="text-red-600"
               >
-                Vui lòng nhập họ và tên
+                Please enter your first and last name
               </div>
             </div>
 
@@ -154,7 +154,7 @@
                 "
                 class="text-red-600"
               >
-                Không đúng định dạng
+                Incorrect format
               </div>
             </div>
 
@@ -175,7 +175,7 @@
                 (change)="updateProvinceValue($event)"
                 required
               >
-                <option selected>Chọn tỉnh/thành phố</option>
+                <option selected>Select Province/City</option>
                 <option
                   *ngFor="let province of provinces"
                   [value]="province.province_id"
@@ -201,7 +201,7 @@
                 (change)="updateDistrictValue($event)"
                 required
               >
-                <option selected>Chọn quận/huyện</option>
+                <option selected>Select District</option>
                 <option
                   *ngFor="let district of districts"
                   [value]="district.district_id"
@@ -672,7 +672,7 @@
                 "
                 class="text-red-600 my-2"
               >
-                Vui lòng nhập số điện thoại(6 ký số)
+                Please enter phone number (6 digits)
               </div>
             </div>
 
@@ -693,7 +693,7 @@
                 (change)="updateCommuneValue($event)"
                 required
               >
-                <option selected>Chọn phường/xã</option>
+                <option selected>Select Ward/Commune</option>
                 <option
                   *ngFor="let commune of communes"
                   [value]="commune.commune_id"
@@ -730,7 +730,7 @@
                 "
                 class="text-red-600"
               >
-                Địa chỉ ít nhất 5 ký tự
+                Address at least 5 characters
               </div>
             </div>
 
@@ -746,7 +746,7 @@
                 type="text"
                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 id="note"
-                placeholder="Ghi chú"
+                placeholder="Note here"
                 formControlName="note"
                 name="note"
                 style="height: 100px"

@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { UserService } from '../../service/user.service';
 import { RegisterDto } from '../../dtos/registerDto';
-import { AlertComponent } from 'src/app/alert/alert.component';
+
 import { AlertService } from 'src/app/service/alert.service';
 import { AuthService } from 'src/app/service/auth.service';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

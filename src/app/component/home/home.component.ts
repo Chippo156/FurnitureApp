@@ -6,11 +6,6 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import {
   ActivatedRoute,
   NavigationExtras,
@@ -21,9 +16,6 @@ import { ProductService } from '../../service/product.service';
 import { Product } from '../../models/product';
 import { Category } from '../../models/category';
 import { environtment } from '../../environments/environment';
-import { PaymentService } from '../../service/payment.service';
-import { CommmentService } from '../../service/comment.service';
-import { Comment } from '../../models/comment';
 import { OrderService } from '../../service/order.service';
 import { SoldProduct } from '../../responses/SoldProduct';
 import { ProductImage } from '../../models/product.image';
@@ -62,9 +54,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
   constructor(
     private router: Router,
     private productService: ProductService,
-    private paymentService: PaymentService,
     private route: ActivatedRoute,
-    private commentService: CommmentService,
     private orderService: OrderService,
     private renderer: Renderer2,
     private categoryService: CategoryService

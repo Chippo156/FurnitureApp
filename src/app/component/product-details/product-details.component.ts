@@ -8,12 +8,6 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { ProductService } from '../../service/product.service';
 import { Product } from '../../models/product';
 import { ProductImage } from '../../models/product.image';
@@ -24,14 +18,11 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { SoldProduct } from '../../responses/SoldProduct';
 import { OrderService } from '../../service/order.service';
 import { CommmentService } from '../../service/comment.service';
-import { Color } from '../../models/colors';
-import { style } from '@angular/animations';
 import { CommentImage } from '../../models/comment.image';
 import { Comment } from '../../models/comment';
 import { Size } from '../../models/sizes';
 import { CommentDTO } from 'src/app/dtos/commentDto';
 import { UserService } from 'src/app/service/user.service';
-import * as THREE from 'three';
 
 @Component({
   selector: 'app-product-details',

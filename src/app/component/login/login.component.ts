@@ -27,16 +27,13 @@ export class LoginComponent {
     private userService: UserService,
     private tokenService: TokenService,
     private router: Router,
-    private activeRoute: ActivatedRoute,
     private alertService: AlertService,
-    private oauthService: OAuthService,
     private authService: AuthService
   ) {
     this.phone_number = '';
     this.password = '';
   }
   login() {
-    const message = `Phone number: ${this.phone_number}, Password: ${this.password}`;
     const loginDto: LoginDTO = {
       phone_number: this.phone_number,
       password: this.password,
