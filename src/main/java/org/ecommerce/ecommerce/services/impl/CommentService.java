@@ -75,7 +75,7 @@ public class CommentService implements iCommentService {
     @Override
     public CommentImage createCommentImage(Long commentId, CommentImageDTO commentImageDTO) {
         try {
-            Comment existComment = commentRepository.findById(commentImageDTO.getCommentId()).orElseThrow(()
+            Comment existComment = commentRepository.findById(commentId).orElseThrow(()
                     -> new RuntimeException("Comment not found"));
             CommentImage commentImage =  CommentImage.builder()
                     .imageUrl(commentImageDTO.getImage_url())
@@ -84,7 +84,6 @@ public class CommentService implements iCommentService {
             int size = commentImageRepository.findAllByCommentId(existComment.getId()).size();
             if(size >= 5){
                 throw new RuntimeException("You can't upload more than 5 images");
-
             }
             return commentImageRepository.save(commentImage);
         }catch (Exception e){

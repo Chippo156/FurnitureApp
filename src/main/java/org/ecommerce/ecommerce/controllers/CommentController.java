@@ -1,14 +1,21 @@
 package org.ecommerce.ecommerce.controllers;
+import com.cloudinary.Cloudinary;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.ecommerce.ecommerce.dtos.CommentDTO;
 import org.ecommerce.ecommerce.dtos.CommentImageDTO;
+import org.ecommerce.ecommerce.dtos.ProductDTO;
+import org.ecommerce.ecommerce.dtos.ProductImageDTO;
+import org.ecommerce.ecommerce.exceptions.DataNotFoundException;
+import org.ecommerce.ecommerce.exceptions.InvalidParamException;
 import org.ecommerce.ecommerce.models.Comment;
 import org.ecommerce.ecommerce.models.CommentImage;
 import org.ecommerce.ecommerce.models.Product;
+import org.ecommerce.ecommerce.models.ProductImage;
 import org.ecommerce.ecommerce.responses.CommentCountResponse;
 import org.ecommerce.ecommerce.responses.CommentResponse;
 import org.ecommerce.ecommerce.responses.create.ListCommentCountResponse;
+import org.ecommerce.ecommerce.services.impl.CloudinaryService;
 import org.ecommerce.ecommerce.services.impl.CommentService;
 import org.ecommerce.ecommerce.services.impl.ProductService;
 import org.springframework.core.io.UrlResource;
@@ -37,7 +44,8 @@ import java.util.UUID;
 public class CommentController {
     private final CommentService commentService;
 
-    private final ProductController productController;
+
+    private final CloudinaryService cloudinaryService;
 
     @GetMapping("/count")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
@@ -68,6 +76,23 @@ public class CommentController {
             return ResponseEntity.ok(comment);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error");
+        }
+    }
+    @PostMapping(value = "/uploadImages/{commentId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> uploadImage(@PathVariable Long commentId,@ModelAttribute("files") List<MultipartFile> files) throws InvalidParamException, DataNotFoundException {
+        try {
+            Comment comment = commentService.getCommentById(commentId);
+            List<String> urls = cloudinaryService.upload(files);
+            for (String url : urls) {
+                CommentImage commentImage = commentService.createCommentImage(comment.getId(),
+                        CommentImageDTO.builder()
+                                .image_url(url)
+                                .build()
+                );
+            }
+            return ResponseEntity.ok("Image uploaded successfully");
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body("Error while uploading image");
         }
     }
 //    @PostMapping(value = "/uploadImages/{commentId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
