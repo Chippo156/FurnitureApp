@@ -47,6 +47,7 @@ import { AlertService } from './service/alert.service';
 import { ProductFavoriteComponent } from './component/product-favorite/product-favorite.component';
 import { AuthConfig, OAuthModule, OAuthService } from 'angular-oauth2-oidc';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   imports: [
@@ -83,6 +84,7 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
     AlertComponent,
     ProductFavoriteComponent,
     ForgotPasswordComponent,
+    ChatComponent,
   ],
   providers: [
     {
@@ -104,5 +106,6 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
     // ProductComponent,
     // OrderDetailComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
