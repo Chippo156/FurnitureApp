@@ -42,6 +42,7 @@ public class WebSecurityConfig {
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(requests -> {
                     requests
+
                             .requestMatchers(HttpMethod.POST,
                                     String.format("%s/users/register", apiPrefix)).permitAll()
                             .requestMatchers(HttpMethod.POST,
@@ -169,6 +170,10 @@ public class WebSecurityConfig {
                                     String.format("%s/users/get-communes/**", apiPrefix)).permitAll()
                             .requestMatchers(HttpMethod.GET,
                                     String.format("%s/classify-color/**", apiPrefix)).permitAll()
+                            .requestMatchers(HttpMethod.POST,
+                                    String.format("%s/chat/**", apiPrefix)).permitAll()
+                            .requestMatchers(HttpMethod.GET,
+                                    String.format("%s/chat/**", apiPrefix)).permitAll()
                             .anyRequest().authenticated();
                 })
                 .csrf(AbstractHttpConfigurer::disable);
