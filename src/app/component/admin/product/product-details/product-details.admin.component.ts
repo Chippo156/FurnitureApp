@@ -41,7 +41,7 @@ export class ProductDetailsAdminComponent implements OnInit {
         next: (response: any) => {
           if (response.product_images && response.product_images.length > 0) {
             response.product_images.forEach((product_images: ProductImage) => {
-              product_images.image_url = `${environtment.apiBaseUrl}/products/viewImages/${product_images.image_url}`;
+              product_images.image_url = product_images.image_url;
             });
           }
           if (response.product_sale === null) {

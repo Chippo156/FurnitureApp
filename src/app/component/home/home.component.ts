@@ -124,7 +124,8 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
             let flag = 0;
             product.product_images.forEach((product_images: ProductImage) => {
               if (flag === 1) {
-                product.url = `${environtment.apiBaseUrl}/products/viewImages/${product_images.image_url}`;
+                // product.url = `${environtment.apiBaseUrl}/products/viewImages/${product_images.image_url}`;
+                product.url = product_images.image_url;
               } else if (flag === 2) {
                 return;
               }
@@ -235,10 +236,10 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
       (product) => product.id === productId
     );
     if (product) {
-      this.hoveredImage = `${environtment.apiBaseUrl}/products/viewImages/${product.thumbnail}`;
+      this.hoveredImage = product.thumbnail;
     }
     if (productShowMore) {
-      this.hoveredImage = `${environtment.apiBaseUrl}/products/viewImages/${productShowMore.thumbnail}`;
+      this.hoveredImage = productShowMore.thumbnail;
     }
   }
   getProductsRating() {
