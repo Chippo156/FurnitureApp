@@ -6,6 +6,7 @@ import {
   Input,
   OnInit,
   Output,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { ProductService } from '../../service/product.service';
@@ -37,7 +38,8 @@ export class ProductDetailsComponent implements OnInit {
     private route: Router,
     private orderService: OrderService,
     private commentService: CommmentService,
-    private userService: UserService
+    private userService: UserService,
+    private renderer: Renderer2
   ) {}
   @ViewChild('container') containerRef!: ElementRef;
   productCheckColor: Product[] = [];
@@ -95,7 +97,7 @@ export class ProductDetailsComponent implements OnInit {
           debugger;
           if (response.product_images && response.product_images.length > 0) {
             response.product_images.forEach((product_images: ProductImage) => {
-              product_images.image_url = `${environtment.apiBaseUrl}/products/viewImages/${product_images.image_url}`;
+              product_images.image_url = product_images.image_url;
             });
           }
           if (response.product_sale === null) {
@@ -336,7 +338,7 @@ export class ProductDetailsComponent implements OnInit {
         debugger;
         response.forEach((comment: Comment) => {
           comment.images.forEach((image: CommentImage) => {
-            image.imageUrl = `${environtment.apiBaseUrl}/comments/viewImages/${image.imageUrl}`;
+            image.imageUrl = image.imageUrl;
           });
         });
         this.comments = response;
@@ -396,6 +398,7 @@ export class ProductDetailsComponent implements OnInit {
       };
     });
   }
+
   addComment() {
     let commentDto = new CommentDTO({
       content: this.commentContent,
@@ -415,6 +418,7 @@ export class ProductDetailsComponent implements OnInit {
               debugger;
               console.log('Upload image response:', response);
               alert('Comment success');
+
               this.checkLoad = true;
             },
             complete: () => {

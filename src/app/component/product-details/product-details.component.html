@@ -424,6 +424,7 @@
               Add comment
             </button>
             <div
+              #staticModal
               id="static-modal"
               data-modal-backdrop="static"
               tabindex="-1"
@@ -601,7 +602,7 @@
                       for="file-upload"
                       class="file-upload-label cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >
-                      Chọn tệp tin
+                      Choose file
                     </label>
                     <input
                       type="file"
@@ -627,7 +628,7 @@
                       Previous
                     </button>
                     <button
-                      data-modal-hide="static-modal"
+                      data-modal-hide="image-modal"
                       data-modal-target="comment-modal"
                       data-modal-toggle="comment-modal"
                       type="button"
@@ -641,6 +642,7 @@
             </div>
 
             <div
+              #commentModal
               id="comment-modal"
               data-modal-backdrop="static"
               tabindex="-1"
@@ -695,12 +697,12 @@
                       class="w-full border border-gray-300 p-2 rounded"
                     ></textarea>
                     <button
+                      id="submit"
                       class="btn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2"
                       (click)="addComment(); checkLoad = false"
                       data-modal-hide="comment-modal"
-                      data-model-hide="static-modal"
                     >
-                      Gửi
+                      Submit
                     </button>
                   </div>
                   <!-- Modal footer -->

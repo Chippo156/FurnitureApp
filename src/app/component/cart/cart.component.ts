@@ -49,7 +49,7 @@ export class CartComponent implements OnInit {
               (p: Product) => p.id === productId
             );
             if (product) {
-              product.url = `${environtment.apiBaseUrl}/products/viewImages/${product.thumbnail}`;
+              product.url = product.thumbnail;
               if (product.product_sale === null) {
                 product.product_sale = {
                   id: 0,

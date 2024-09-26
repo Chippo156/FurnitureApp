@@ -40,7 +40,7 @@ export class CartDetailComponent implements OnInit {
   totalMoney: number = 0;
   subTotal: number = 0;
   discount: number = 0;
-  selectedPayment: string = 'Thanh toán khi nhận hàng';
+  selectedPayment: string = 'Payment on delivery';
   address: string = '';
   selectedAddress: string = '';
   userResponse: UserResponse =
@@ -131,7 +131,7 @@ export class CartDetailComponent implements OnInit {
             (p: Product) => p.id === productId
           );
           if (product) {
-            product.url = `${environtment.apiBaseUrl}/products/viewImages/${product.thumbnail}`;
+            product.url = product.thumbnail;
             if (product.product_sale === null) {
               product.product_sale = {
                 id: 0,
@@ -240,18 +240,16 @@ export class CartDetailComponent implements OnInit {
           next: (response) => {
             debugger;
             this.orderId = response;
-            if (this.selectedPayment === 'Thanh toán online qua cổng VNPay') {
-              alert('Bạn chắc chắn thanh toán qua thẻ');
+            if (this.selectedPayment === 'VNPAY') {
+              alert('You definitely pay via card?');
             }
             if (
-              this.selectedPayment === 'Thanh toán tiền mặt' ||
+              this.selectedPayment === 'Payment on delivery' ||
               this.selectedPayment === 'POS'
             ) {
               this.router.navigate(['/orders']);
               this.cartService.clearCart();
-            } else if (
-              this.selectedPayment === 'Thanh toán online qua cổng VNPay'
-            ) {
+            } else if (this.selectedPayment === 'VNPAY') {
               this.paymentService
                 .getCreatePayment('NCB', this.totalMoney, this.orderId)
                 .subscribe({
@@ -268,7 +266,7 @@ export class CartDetailComponent implements OnInit {
                     if (this.createPayment?.code === 'ok') {
                       debugger;
                       const url = new URLSearchParams(window.location.search);
-                      
+
                       this.paymentService.getInfoPayment(url).subscribe({
                         next: (response: any) => {
                           debugger;
@@ -291,7 +289,7 @@ export class CartDetailComponent implements OnInit {
                   },
                   error: (error) => {
                     debugger;
-                    alert(`Lỗi khi tạo thanh toán ${error}`);
+                    alert(`Error creating payment ${error}`);
                   },
                 });
             }
@@ -300,21 +298,21 @@ export class CartDetailComponent implements OnInit {
             debugger;
             this.cartService.clearCart();
             this.checkLoad = true;
-            alert('Đặt hàng thành công');
+            alert('Order successfully');
             this.router.navigate(['/orders']);
           },
           error: (error) => {
             debugger;
-            alert(`Lỗi khi đặt hàng ${error}`);
+            alert(`Error when ordering ${error}`);
           },
         });
       } else {
-        alert('Vui lòng điền đầy đủ thông tin');
+        alert('Please fill in all information');
         this.orderForm.markAllAsTouched();
         this.checkLoad = true;
       }
     } else {
-      alert('Bạn cần đăng nhập để thực hiện chức năng này');
+      alert('You need to log in to perform this function');
       this.router.navigate(['/login']);
     }
   }
@@ -468,5 +466,21 @@ export class CartDetailComponent implements OnInit {
         return;
       }
     });
+  }
+  onClickSelectTransport() {
+    this.calculateTotalMoney();
+    let selectedTranport = document.querySelector(
+      'input[name="shipping"]:checked'
+    );
+    if (selectedTranport) {
+      this.selectedTranport = (selectedTranport as HTMLInputElement).value;
+    }
+    if (this.selectedTranport === 'Express Delivery') {
+      this.totalMoney = this.totalMoney + 100000;
+    } else if (this.selectedTranport === 'DHL Fast Delivery') {
+      this.totalMoney = this.totalMoney + 50000;
+    } else {
+      this.totalMoney = this.totalMoney;
+    }
   }
 }

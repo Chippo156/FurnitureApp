@@ -60,12 +60,6 @@ export class ProductFavoriteComponent implements OnInit {
   ngOnInit() {
     debugger;
     window.scrollTo(0, 0);
-    // this.getProducts(
-    //   this.keyword,
-    //   this.selectedCategoryId,
-    //   this.currentPage,
-    //   this.itemsPerPage
-    // );
     this.getCountQuantityProduct();
     this.getColors();
 
@@ -85,7 +79,7 @@ export class ProductFavoriteComponent implements OnInit {
     this.productService.getProductByIds(this.product_favorite).subscribe({
       next: (response: any) => {
         response.productResponses.forEach((product: Product) => {
-          product.url = `${environtment.apiBaseUrl}/products/viewImages/${product.thumbnail}`;
+          product.url = product.thumbnail;
           if (product.product_sale === null) {
             product.product_sale = {
               id: 0,
@@ -136,7 +130,7 @@ export class ProductFavoriteComponent implements OnInit {
             let flag = 0;
             product.product_images.forEach((product_images: ProductImage) => {
               if (flag === 1) {
-                product.url = `${environtment.apiBaseUrl}/products/viewImages/${product_images.image_url}`;
+                product.url = product_images.image_url;
               } else if (flag === 2) {
                 return;
               }
@@ -255,7 +249,7 @@ export class ProductFavoriteComponent implements OnInit {
   getImageFromHover(productId: number) {
     const product = this.products.find((product) => product.id === productId);
     if (product) {
-      this.hoveredImage = `${environtment.apiBaseUrl}/products/viewImages/${product.thumbnail}`;
+      this.hoveredImage = product.thumbnail;
     }
   }
 

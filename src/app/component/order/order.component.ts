@@ -54,7 +54,7 @@ export class OrderComponent implements OnInit {
       next: (response: Product[]) => {
         response.forEach((product) => {
           product.product_images.forEach((product_images: ProductImage) => {
-            product.url = `${environtment.apiBaseUrl}/products/viewImages/${product_images.image_url}`;
+            product.url = product_images.image_url;
           });
         });
         this.products = response;
@@ -71,7 +71,7 @@ export class OrderComponent implements OnInit {
         response.forEach((orderDetail) => {
           orderDetail.product.product_images.forEach(
             (product_images: ProductImage) => {
-              orderDetail.product.url = `${environtment.apiBaseUrl}/products/viewImages/${product_images.image_url}`;
+              orderDetail.product.url = product_images.image_url;
             }
           );
         });

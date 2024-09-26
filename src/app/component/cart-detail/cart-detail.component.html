@@ -767,64 +767,12 @@
               <div class="flex items-start">
                 <div class="flex h-5 items-center">
                   <input
-                    id="credit-card"
-                    aria-describedby="credit-card-text"
-                    type="radio"
-                    name="payment"
-                    value="Thanh toán tiền mặt"
-                    class="h-4 w-4 border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
                     checked
-                  />
-                </div>
-
-                <div class="ms-4 text-sm">
-                  <label
-                    for="credit-card"
-                    class="font-medium leading-none text-gray-900 dark:text-white"
-                  >
-                    Credit Card
-                  </label>
-                  <p
-                    id="credit-card-text"
-                    class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400"
-                  >
-                    Pay with your credit card
-                  </p>
-                </div>
-              </div>
-
-              <div class="mt-4 flex items-center gap-2">
-                <button
-                  type="button"
-                  class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                >
-                  Delete
-                </button>
-
-                <div
-                  class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"
-                ></div>
-
-                <button
-                  type="button"
-                  class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                >
-                  Edit
-                </button>
-              </div>
-            </div>
-
-            <div
-              class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800"
-            >
-              <div class="flex items-start">
-                <div class="flex h-5 items-center">
-                  <input
                     id="pay-on-delivery"
                     aria-describedby="pay-on-delivery-text"
                     type="radio"
                     name="payment"
-                    value="Thanh toán tiền mặt"
+                    value="Payment on delivery"
                     class="h-4 w-4 border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
                   />
                 </div>
@@ -840,7 +788,7 @@
                     id="pay-on-delivery-text"
                     class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400"
                   >
-                    Free delivery
+                    Contact with shipper
                   </p>
                 </div>
               </div>
@@ -876,7 +824,7 @@
                     aria-describedby="paypal-text"
                     type="radio"
                     name="payment"
-                    value="Thanh toán online qua cổng VNPay"
+                    value="VNPAY"
                     class="h-4 w-4 border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
                   />
                 </div>
@@ -937,6 +885,7 @@
                     type="radio"
                     name="shipping"
                     value="DHL Fast Delivery"
+                    (click)="onClickSelectTransport()"
                     class="h-4 w-4 border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
                     checked
                   />
@@ -947,7 +896,7 @@
                     for="dhl"
                     class="font-medium leading-none text-gray-900 dark:text-white"
                   >
-                    DHL Fast Delivery
+                    DHL Fast Delivery (2$)
                   </label>
                   <p
                     id="dhl-text"
@@ -965,11 +914,13 @@
               <div class="flex items-start">
                 <div class="flex h-5 items-center">
                   <input
+                    checked
                     id="fedex"
                     aria-describedby="fedex-text"
                     type="radio"
                     name="shipping"
                     value="FedEx"
+                    (click)="onClickSelectTransport()"
                     class="h-4 w-4 border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
                   />
                 </div>
@@ -1003,6 +954,7 @@
                     name="shipping"
                     value="Express Delivery"
                     class="h-4 w-4 border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                    (click)="onClickSelectTransport()"
                   />
                 </div>
 
@@ -1011,7 +963,7 @@
                     for="express"
                     class="font-medium leading-none text-gray-900 dark:text-white"
                   >
-                    Express Delivery
+                    Express Delivery (4$)
                   </label>
                   <p
                     id="express-text"
@@ -1104,7 +1056,7 @@
             >
               <h4 class="flex flex-wrap gap-4 text-base text-white">
                 Total
-                <span class="ml-auto"
+                <span class="ml-auto text-2xl"
                   >{{ totalMoney.toLocaleString("vn-VN") }}đ</span
                 >
               </h4>
