@@ -33,7 +33,6 @@ public class CategoryRedisService implements iCategoryRedisService {
         String key = String.format("all_categories:%d:%d:%s:%s", pageNumber, pageSize, sortDirection, keyword);
         return key;
     }
-
     @Override
     public List<Category> getAllCategories(String keyword, PageRequest pageRequest) throws Exception {
         String key = this.getKeyFrom(keyword, pageRequest);

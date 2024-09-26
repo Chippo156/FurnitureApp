@@ -3,6 +3,8 @@ package org.ecommerce.ecommerce.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.ecommerce.ecommerce.dtos.ProductDTO;
 import org.ecommerce.ecommerce.dtos.ProductImageDTO;
+import org.ecommerce.ecommerce.exceptions.DataNotFoundException;
+import org.ecommerce.ecommerce.exceptions.InvalidParamException;
 import org.ecommerce.ecommerce.models.Product;
 import org.ecommerce.ecommerce.models.ProductImage;
 import org.ecommerce.ecommerce.responses.CommentResponse;
@@ -36,79 +38,28 @@ public class ProductController {
     @Autowired
     private ProductService productService;
     @Autowired
-    private SizeService sizeService;
+    private CloudinaryService cloudinaryService;
     @Autowired
     private ProductRedisService productRedisService;
     @Autowired
     private CommentService commentService;
-    @PostMapping(value = "/uploadImages/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> uploadImages(@PathVariable Long id, @ModelAttribute("files") List<MultipartFile> files) {
-        try {
-            Product product = productService.getProductById(id);
-            files = files == null ? new ArrayList<MultipartFile>() : files;
-            List<ProductImage> productImages = new ArrayList<>();
-            boolean thumbnail = false;
-            for (MultipartFile file : files) {
-                if (file != null) {
-                    if (file.getSize() <= 0) {
-                        continue;
-                    }
-                    if (file.getSize() >= 1024 * 1024 * 10) {
-                        return ResponseEntity.badRequest().body("File size must be less than 10MB");
-                    }
-                    String contentType = file.getContentType();
 
-                    if (contentType == null || !contentType.startsWith("image/")) {
-                        return ResponseEntity.badRequest().body("File must be an image");
-                    }
-
-                    String uniqueFileName = storeFile(file);
-                    ProductImage productImage = productService.createProductImage(product.getId(),
-                            ProductImageDTO.builder()
-                                    .image_url(uniqueFileName)
-                                    .build()
-                    );
-                    productImages.add(productImage);
-                    if (!thumbnail) {
-                        product.setThumbnail(productImage.getImage_url());
-                        thumbnail = true;
-                    }
-                }
+    @PostMapping (value = "/uploadImages/{id}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Product> uploadImage(@PathVariable Long id,@ModelAttribute("files") List<MultipartFile> files) throws InvalidParamException, DataNotFoundException {
+        Product product = productService.getProductById(id);
+        List<String> urls = cloudinaryService.upload(files);
+        for (String url : urls) {
+            ProductImage productImage = productService.createProductImage(product.getId(),
+                    ProductImageDTO.builder()
+                            .image_url(url)
+                            .build()
+            );
+            if (product.getThumbnail().isEmpty()) {
+                product.setThumbnail(productImage.getImage_url());
+                productService.updateProduct(product.getId(), ProductDTO.builder().thumbnail(productImage.getImage_url()).build());
             }
-            return ResponseEntity.ok(product);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
         }
-    }
-
-    public String storeFile(MultipartFile file) throws IOException {
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        String newFileName = UUID.randomUUID().toString() + "_" + fileName;
-        //Đường dẫn Thuw mục lưu file ảnh
-        Path path = Paths.get("uploads");
-        if (!Files.exists(path)) {
-            Files.createDirectories(path);
-        }
-        //Tạo duong dan file den thu muc
-        Path destination = Paths.get(path.toString(), newFileName);
-        Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
-        return newFileName;
-    }
-
-    @GetMapping("/viewImages/{imageName}")
-    public ResponseEntity<?> viewImage(@PathVariable String imageName) {
-
-        try {
-            Path path = Paths.get("uploads/", imageName);
-            UrlResource resource = new UrlResource(path.toUri());
-            if (resource.exists()) {
-                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resource);
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok().body(product);
     }
     @GetMapping("")
     public ResponseEntity<?> getAllProducts(
@@ -118,8 +69,6 @@ public class ProductController {
         PageRequest pageRequest = PageRequest.of(page, limit, Sort.by("id").ascending());
         List<ProductResponse> productResponses = productRedisService.getAllProducts(keyword, categoryId, pageRequest);
         int totalPages = 5;
-//        Page<ProductResponse> products = productService.getAllProducts(keyword, categoryId, pageRequest);
-//        totalPages = products.getTotalPages();
         if (productResponses == null) {
             Page<ProductResponse> products = productService.getAllProducts(keyword, categoryId, pageRequest);
             totalPages = products.getTotalPages();

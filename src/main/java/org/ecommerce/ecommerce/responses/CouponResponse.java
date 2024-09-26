@@ -15,16 +15,10 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 public class CouponResponse {
-
-
-
     private String code;
-
     private double discount;
-
     @JsonProperty("discount_type")
     private String discountType;
-
     public static CouponResponse from(Coupon coupon) {
         return CouponResponse.builder()
                 .code(coupon.getCode())
@@ -32,6 +26,4 @@ public class CouponResponse {
                 .discountType(coupon.getDiscountType())
                 .build();
     }
-
-
 }

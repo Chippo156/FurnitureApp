@@ -25,12 +25,10 @@ public class PaymentController {
     private final PaymentService paymentService;
     private final OrderService orderService;
     private final ModelMapper modelMapper;
-
     @GetMapping("/vn-pay")
     public ResponseEntity<?> pay(HttpServletRequest request) {
         return ResponseEntity.ok(paymentService.createVnPayPayment(request));
     }
-
     @GetMapping("/vnpay-callback")
     public ResponseEntity<?> payCallBackHandle(HttpServletRequest request, HttpServletResponse response) throws DataNotFoundException, IOException {
         String status = request.getParameter("vnp_ResponseCode");

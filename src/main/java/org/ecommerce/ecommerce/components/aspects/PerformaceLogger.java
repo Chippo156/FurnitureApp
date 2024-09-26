@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 public class PerformaceLogger {
 
     private final Logger logger = Logger.getLogger(getClass().getName());
-
     private String getMethodName(JoinPoint joinPoint) {
         return joinPoint.getSignature().getName();
     }

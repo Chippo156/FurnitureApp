@@ -58,8 +58,13 @@ public class ProductService implements iProductService {
     public Product updateProduct(Long productId, ProductDTO productDTO) throws DataNotFoundException {
         try {
             Product product = productRepository.findById(productId).orElseThrow(() -> new Exception("Cannot find product with id: " + productId));
-            product.setName(productDTO.getProductName());
-            product.setPrice(productDTO.getPrice());
+
+            if (productDTO.getProductName() != null) {
+                product.setName(productDTO.getProductName());
+            }
+            if (productDTO.getPrice() != 0) {
+                product.setPrice(productDTO.getPrice());
+            }
             if (productDTO.getDescription() != null) {
                 product.setDescription(productDTO.getDescription());
             }
@@ -91,7 +96,6 @@ public class ProductService implements iProductService {
             throw new DataNotFoundException("Lỗi ");
         }
     }
-
     @Override
     public Product getProductById(Long productId) {
         return productRepository.findById(productId).orElse(null);
@@ -107,8 +111,6 @@ public class ProductService implements iProductService {
     public Page<ProductResponse> getAllProducts(String keyword, Long categoryId, PageRequest pageRequest) {
         return productRepository.searchProducts(keyword,categoryId, pageRequest).map(ProductResponse::fromProduct);
     }
-
-
     @Override
     public boolean existsByProductName(String productName) {
         return productRepository.existsByName(productName);

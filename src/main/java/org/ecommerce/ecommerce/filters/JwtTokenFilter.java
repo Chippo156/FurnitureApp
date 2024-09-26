@@ -52,8 +52,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             final String token = authenticationHeader.substring(7);
             final String phoneNumber = jwtTokenUtils.extractPhoneNumber(token);
             final Long userId = jwtTokenUtils.extractUserId(token);
-            Logger logger = org.slf4j.LoggerFactory.getLogger(AuthenticationSuccessHandle.class);
-            logger.info("User id: {}", userId);
+
             if(socialAccountRepository.findByUserId(userId)){
                 filterChain.doFilter(request, response);
                 return;
@@ -107,6 +106,11 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         }
         if (path.contains(String.format("%s/products/viewImages", apiPrefix))
                 && method.equals("GET")) {
+            // Allow access to %s/orders
+            return true;
+        }
+        if (path.contains(String.format("%s/products/uploadImages", apiPrefix))
+                && method.equals("POST")) {
             // Allow access to %s/orders
             return true;
         }

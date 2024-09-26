@@ -33,8 +33,6 @@ public class JwtTokenUtils {
         String secretKey = Encoders.BASE64.encode(bytes);
         return secretKey;
     }
-
-
     public String generateToken(User user){
         Map<String,Object> claims = new HashMap<>();
         claims.put("phoneNumber",user.getPhoneNumber());
@@ -90,7 +88,6 @@ public class JwtTokenUtils {
     {
         return extractClaim(token,claims -> claims.get("userId", Long.class));
     }
-
     public boolean validateToken(String token, UserDetails userDetails)
     {
         String phoneNumber = extractPhoneNumber(token);

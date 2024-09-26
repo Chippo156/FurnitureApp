@@ -59,7 +59,6 @@ public class CategoryController {
     public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
         return ResponseEntity.ok(categoryService.getCategoryById(id));
     }
-
     @GetMapping("")
     public ResponseEntity<?> getAllCategories(
             @RequestParam String keyword,
@@ -84,7 +83,6 @@ public class CategoryController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error");
         }
-
     }
 
     @PutMapping("/{id}")

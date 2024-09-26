@@ -70,56 +70,56 @@ public class CommentController {
             return ResponseEntity.badRequest().body("Error");
         }
     }
-    @PostMapping(value = "/uploadImages/{commentId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> uploadImage(@PathVariable Long commentId, @ModelAttribute("files") List<MultipartFile> files) {
-        try {
-            Comment comment = commentService.getCommentById(commentId);
-            if (comment == null) {
-                return ResponseEntity.badRequest().body("Comment not found");
-            }
-            files = files == null ? new ArrayList<MultipartFile>() : files;
-            List<CommentImage> commentImages = new ArrayList<>();
-            for (MultipartFile file : files) {
-                if (file != null) {
-                    if (file.getSize() <= 0) {
-                        continue;
-                    }
-                    if (file.getSize() >= 1024 * 1024 * 10) {
-                        return ResponseEntity.badRequest().body("Image size must be less than 10MB");
-                    }
-                    String contentType = file.getContentType();
-                    if (contentType == null || !contentType.startsWith("image/")) {
-                        return ResponseEntity.badRequest().body("Only image files are allowed");
-                    }
-                    String uniqueFileName = productController.storeFile(file);
-                    CommentImage commentImage = commentService.createCommentImage(commentId, CommentImageDTO.builder()
-                            .image_url(uniqueFileName)
-                            .commentId(commentId)
-                            .build());
-                    commentImages.add(commentImage);
-                }
-            }
-            return ResponseEntity.ok("Image uploaded successfully");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error while uploading image");
-        }
-    }
-    @GetMapping("/viewImages/{imageName}")
-    public ResponseEntity<?> viewImage(@PathVariable String imageName)
-    {
-        try {
-            Path path = Paths.get("uploads/",imageName);
-            UrlResource resource = new UrlResource(path.toUri());
-            if(resource.exists()) {
-                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resource);
-            }else {
-                return ResponseEntity.notFound().build();
-            }
-        }catch (Exception e)
-        {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    @PostMapping(value = "/uploadImages/{commentId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+//    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+//    public ResponseEntity<?> uploadImage(@PathVariable Long commentId, @ModelAttribute("files") List<MultipartFile> files) {
+//        try {
+//            Comment comment = commentService.getCommentById(commentId);
+//            if (comment == null) {
+//                return ResponseEntity.badRequest().body("Comment not found");
+//            }
+//            files = files == null ? new ArrayList<MultipartFile>() : files;
+//            List<CommentImage> commentImages = new ArrayList<>();
+//            for (MultipartFile file : files) {
+//                if (file != null) {
+//                    if (file.getSize() <= 0) {
+//                        continue;
+//                    }
+//                    if (file.getSize() >= 1024 * 1024 * 10) {
+//                        return ResponseEntity.badRequest().body("Image size must be less than 10MB");
+//                    }
+//                    String contentType = file.getContentType();
+//                    if (contentType == null || !contentType.startsWith("image/")) {
+//                        return ResponseEntity.badRequest().body("Only image files are allowed");
+//                    }
+//                    String uniqueFileName = productController.storeFile(file);
+//                    CommentImage commentImage = commentService.createCommentImage(commentId, CommentImageDTO.builder()
+//                            .image_url(uniqueFileName)
+//                            .commentId(commentId)
+//                            .build());
+//                    commentImages.add(commentImage);
+//                }
+//            }
+//            return ResponseEntity.ok("Image uploaded successfully");
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body("Error while uploading image");
+//        }
+//    }
+//    @GetMapping("/viewImages/{imageName}")
+//    public ResponseEntity<?> viewImage(@PathVariable String imageName)
+//    {
+//        try {
+//            Path path = Paths.get("uploads/",imageName);
+//            UrlResource resource = new UrlResource(path.toUri());
+//            if(resource.exists()) {
+//                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resource);
+//            }else {
+//                return ResponseEntity.notFound().build();
+//            }
+//        }catch (Exception e)
+//        {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
 }
