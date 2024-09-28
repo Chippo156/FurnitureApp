@@ -6,6 +6,7 @@ import {
   Input,
   OnInit,
   Output,
+  Renderer2,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -33,13 +34,15 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   totalQuantity: number = 0;
   isLoggedIn: boolean = false;
   flag = true;
+  keyword: string = '';
   constructor(
     private userService: UserService,
     private ngbPopoverConfig: NgbPopoverConfig,
     private tokenService: TokenService,
     private router: Router,
     private cartService: CartService,
-    private authService: AuthService
+    private authService: AuthService,
+    private renderer: Renderer2
   ) {
     this.totalQuantity = cartService.getCartSize1().size;
   }
@@ -96,5 +99,37 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
   reloadHeader() {
     this.userResponse = this.userService.getUserResponseFromLocalStorage()!;
+  }
+  isHovered1 = false;
+  isHovered2 = false;
+  isHovered3 = false;
+  isHovered4 = false;
+
+  hoverItemMenu(item: number, isHovered: boolean) {
+    if (item === 1) {
+      this.isHovered1 = isHovered;
+    }
+    if (item === 2) {
+      this.isHovered2 = isHovered;
+    }
+    if (item === 3) {
+      this.isHovered3 = isHovered;
+    }
+    if (item === 4) {
+      this.isHovered4 = isHovered;
+    }
+  }
+
+  searchProduct() {}
+  filterCategory(categoryName: string) {
+    this.router
+      .navigate(['/products', { category: categoryName, filter: 'true' }])
+      .then(() => {
+        this.renderer.setProperty(
+          window.location,
+          'href',
+          window.location.href
+        );
+      });
   }
 }

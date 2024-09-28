@@ -102,10 +102,10 @@ export class CategoryAdminComponent {
     });
   }
 
-  UpdateCategory(categoryDto: CategoryDTO, categorId: number) {
+  UpdateCategory(CategoryName: string, categorId: number) {
     debugger;
-    categoryDto = {
-      category_name: this.categoryName,
+    const categoryDto = {
+      category_name: CategoryName,
     };
     this.categoryService.updateCategory(categorId, categoryDto).subscribe({
       next: (response: any) => {

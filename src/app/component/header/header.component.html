@@ -10,7 +10,7 @@
     </p>
   </div>
   <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3"
   >
     <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="/assets/imgs/chippo.jpg" width="80" alt="Logo" />
@@ -127,7 +127,7 @@
     <div
       class="items-center justify-between md:flex md:w-auto md:order-2 order-2"
     >
-      <ul class="flex items-center gap-12">
+      <ul class="flex items-center gap-6">
         <li>
           <a
             routerLink="/product-favorite"
@@ -165,7 +165,7 @@
       id="navbar-user"
     >
       <ul
-        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+        class="flex items-center flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
       >
         <li>
           <a
@@ -176,7 +176,7 @@
             >Home</a
           >
         </li>
-        <li>
+        <li class="p-2">
           <a
             (click)="navigateItem('Shop')"
             routerLink="/products"
@@ -185,21 +185,326 @@
           >
         </li>
         <li>
-          <a
-            (click)="navigateItem('About')"
-            class="itemNav block mr-5 py-2 px-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >About</a
-          >
-        </li>
-        <li>
-          <a
-            (click)="navigateItem('Contact')"
-            routerLink="/contact"
-            class="itemNav block mr-5 py-2 px-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >Contact</a
-          >
+          <div class="relative border w-full rounded-lg">
+            <input
+              type="search"
+              id="search-dropdown"
+              [(ngModel)]="keyword"
+              name="keyword"
+              class="w-96 block p-2.5 z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-s-gray-50 border-s-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+              placeholder="Search product..."
+              required
+            />
+            <button
+              type="submit"
+              (click)="searchProduct()"
+              class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              <svg
+                class="w-4 h-4"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+              <span class="sr-only">Search</span>
+            </button>
+          </div>
         </li>
       </ul>
     </div>
+  </div>
+  <div class="max-w-screen-xl flex flex-wrap items-center mx-auto p-3">
+    <ul class="flex flex-wrap max-w-screen-xl gap-12">
+      <li
+        (mouseenter)="hoverItemMenu(1, true)"
+        (mouseleave)="hoverItemMenu(1, false)"
+        class="p-2 item-menu_1 relative"
+      >
+        <a class="mr-2" href="">Sản phẩm</a>
+        <i
+          class="animation"
+          [class]="
+            isHovered1 ? 'fa-solid fa-angle-up ' : 'fa-solid fa-angle-down'
+          "
+        ></i>
+        <div
+          class="menu2 rounded-sm w-48 z-50 absolute bg-white mt-2 border-gray-900"
+        >
+          <ul class="rounded-sm">
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">Bộ sưu tập</a>
+              <i class="fa-solid fa-angle-right"></i>
+              <div class="bg-white absolute left-full top-0">
+                <ul class="menu3">
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">VLINE COLLECTION</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">CHIPPO COLLECTION</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">Phòng Ngủ</a><i class="fa-solid fa-angle-right"> </i>
+              <div class="bg-white absolute left-full top-0">
+                <ul class="menu3">
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Tủ Quần Áo</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a
+                      href=""
+                      (click)="filterCategory('Giường Ngủ')"
+                      routerLink="/products"
+                      >Giường Ngủ</a
+                    >
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a (click)="filterCategory('Tủ Đầu Giường')"
+                      >Tủ Đầu Giường</a
+                    >
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Bàn Trang Điểm</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">Phòng khách</a><i class="fa-solid fa-angle-right"></i>
+              <div class="bg-white absolute left-full top-0">
+                <ul class="menu3">
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Ghế sofa</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Bàn Sofa - Bàn trà</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Tủ kệ Tivi</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Tủ giày - Tủ trang trí</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">Phòng ăn</a><i class="fa-solid fa-angle-right"></i>
+              <div class="bg-white absolute left-full top-0">
+                <ul class="menu3">
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Bàn ăn</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Ghế ăn</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a (click)="filterCategory('Bộ Bàn Ăn ')">Bộ Bàn Ăn</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">Phòng làm việc</a
+              ><i class="fa-solid fa-angle-right"></i>
+              <div class="bg-white absolute left-full top-0">
+                <ul class="menu3">
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a (click)="filterCategory('Bàn Làm Việc')">Bàn Làm Việc</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a (click)="filterCategory('Ghế Văn Phòng')"
+                      >Ghế Văn Phòng</a
+                    >
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a>Tủ kệ</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">Nệm</a><i class="fa-solid fa-angle-right"></i>
+              <div class="bg-white absolute left-full top-0">
+                <ul class="menu3">
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Nệm Foam</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Nệm lò xo</a>
+                  </li>
+                  <li
+                    class="p-3 border border-b-2 flex justify-between items-center"
+                  >
+                    <a href="">Nệm cao su</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li
+        (mouseenter)="hoverItemMenu(2, true)"
+        (mouseleave)="hoverItemMenu(2, false)"
+        class="p-2 item-menu_1 relative"
+      >
+        <a class="mr-2" href="">BST Âu Mỹ</a>
+        <i
+          class="animation"
+          [class]="
+            isHovered2 ? 'fa-solid fa-angle-up ' : 'fa-solid fa-angle-down'
+          "
+        ></i>
+        <div
+          class="menu2 rounded-sm w-48 z-50 absolute bg-white mt-2 border-gray-900"
+        >
+          <ul class="rounded-sm">
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">NAVIK COLLECTION</a>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">CHIPPO COLLECTION</a>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">HTH COLLECTION</a>
+            </li>
+
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">KOSTER COLLECTION</a>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">KOALA COLLECTION</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li
+        (mouseenter)="hoverItemMenu(3, true)"
+        (mouseleave)="hoverItemMenu(3, false)"
+        class="p-2 item-menu_1"
+      >
+        <a class="mr-2" href="">Tủ bếp</a>
+        <i
+          [class]="
+            isHovered3 ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down'
+          "
+        ></i>
+        <div
+          class="menu2 rounded-sm w-48 z-50 absolute bg-white mt-2 border-gray-900"
+        >
+          <ul class="rounded-sm">
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">CHIPPO KITCHEN</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li
+        (mouseenter)="hoverItemMenu(4, true)"
+        (mouseleave)="hoverItemMenu(4, false)"
+        class="p-2 item-menu_1"
+      >
+        <a class="mr-2" href="">Khuyến mãi</a>
+        <i
+          [class]="
+            isHovered4 ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down'
+          "
+        ></i>
+        <div
+          class="menu2 rounded-sm w-48 z-50 absolute bg-white mt-2 border-gray-900"
+        >
+          <ul class="rounded-sm">
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">[-49%] Ưu đãi mùa thu </a>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">[-48%] COMBO CHIPPO </a>
+            </li>
+            <li
+              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
+            >
+              <a href="">[New] Tủ bếp 2024 </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>

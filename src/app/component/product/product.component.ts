@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product';
 import { Category } from '../../models/category';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../service/product.service';
 import { environtment } from '../../environments/environment';
 import { CommmentService } from '../../service/comment.service';
@@ -52,13 +52,14 @@ export class ProductComponent implements OnInit {
   colors: Set<string> = new Set();
   selectedCheckboxes: Set<number> = new Set();
   product_favorite: Set<number> = new Set<number>();
+
   constructor(
     private router: Router,
     private productService: ProductService,
-    private commentService: CommmentService,
     private orderService: OrderService,
     private categoryService: CategoryService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private route: ActivatedRoute
   ) {
     this.selectedCategoryId = 0;
     this.keyword = '';
@@ -66,16 +67,22 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     debugger;
+    const filter = this.route.snapshot.paramMap.get('filter') || 'false';
+    const categoryName = this.route.snapshot.paramMap.get('category') || '';
     window.scrollTo(0, 0);
-    this.getProducts(
-      this.keyword,
-      this.selectedCategoryId,
-      this.currentPage,
-      this.itemsPerPage
-    );
-    this.getCountQuantityProduct();
-    // this.getColors();
-    this.getAllCategory();
+    if (filter === 'true') {
+      this.filterProduct(categoryName);
+    } else {
+      this.getProducts(
+        this.keyword,
+        this.selectedCategoryId,
+        this.currentPage,
+        this.itemsPerPage
+      );
+      this.getCountQuantityProduct();
+      // this.getColors();
+      this.getAllCategory();
+    }
   }
   onPageChange(page: number) {
     this.checkLoad = false;
@@ -284,17 +291,7 @@ export class ProductComponent implements OnInit {
       this.hoveredImage = product.thumbnail;
     }
   }
-  filterProductByCategory() {
-    let categoryName = (
-      document.querySelector(
-        'input[name="category"]:checked'
-      ) as HTMLInputElement
-    )?.value;
-    console.log(categoryName);
-    if (categoryName === undefined) {
-      this.products = this.productsFilter;
-      console.log(this.productsFilter);
-    }
+  getProductByCategoryName(categoryName: string) {
     this.productService.getProductByCategoryName(categoryName).subscribe({
       next: (response: any) => {
         debugger;
@@ -337,12 +334,26 @@ export class ProductComponent implements OnInit {
       complete: () => {
         debugger;
         this.getProductsRating();
+        this.checkLoad = true;
       },
       error: (error) => {
         debugger;
         console.log(error);
       },
     });
+  }
+  filterProductByCategory() {
+    let categoryName = (
+      document.querySelector(
+        'input[name="category"]:checked'
+      ) as HTMLInputElement
+    )?.value;
+    console.log(categoryName);
+    this.getProductByCategoryName(categoryName);
+    if (categoryName === undefined) {
+      this.products = this.productsFilter;
+      console.log(this.productsFilter);
+    }
   }
   filterProductByPrice() {
     this.products = this.productsFilter;
@@ -497,5 +508,9 @@ export class ProductComponent implements OnInit {
         console.log('Element not found');
       }
     });
+  }
+
+  filterProduct(categoryName: string) {
+    this.getProductByCategoryName(categoryName);
   }
 }
