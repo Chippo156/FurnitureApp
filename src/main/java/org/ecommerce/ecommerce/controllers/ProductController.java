@@ -158,11 +158,18 @@ public class ProductController {
     }
 
     @GetMapping("/by-category-name")
-    public ResponseEntity<?> getProductsByCategoryName(@RequestParam("categoryName") String categoryName) {
+    public ResponseEntity<?> getProductsByCategoryName(@RequestParam("categoryName") String categoryName ,
+                                                       @RequestParam int page, @RequestParam int limit
+                                                       ) {
         try {
-            List<ProductResponse> productResponses = productService.getProductsByCategoryName(categoryName);
+            PageRequest pageRequest = PageRequest.of(page, limit, Sort.by("id").ascending());
+
+            Page<ProductResponse> productPage = productService.getProductsByCategoryName(categoryName,pageRequest);
+            int totalPages = productPage.getTotalPages();
+            List<ProductResponse> productResponses = productPage.getContent();
             return ResponseEntity.ok(ProductListResponse.builder()
                     .productResponses(productResponses)
+                            .totalPage(totalPages)
                     .build());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

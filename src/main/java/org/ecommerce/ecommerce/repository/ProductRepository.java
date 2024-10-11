@@ -23,8 +23,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("select p from Product p where p.classifyColor.id = :classify_color_id")
     List<Product> findAllByClassifyColorId(Long classify_color_id);
-    @Query("SELECT c FROM Product c WHERE LOWER(c.name) LIKE CONCAT('%', LOWER(:category_name), '%')")
-    List<Product> findAllByCategoryName(@Param("category_name") String category_name);
+    @Query("SELECT c FROM Product c WHERE LOWER(c.category.name) LIKE CONCAT('%', LOWER(:category_name), '%')")
+    Page<Product> findAllByCategoryName(@Param("category_name") String category_name,Pageable pageable);
 
     @Query("SELECT new org.ecommerce.ecommerce.responses.ProductRatingResponse(c.product.id, avg(c.rating),COUNT(*)) from Comment c group by c.product.id order by c.product.id desc")
     List<ProductRatingResponse> getRatingProducts();

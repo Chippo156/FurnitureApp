@@ -28,7 +28,7 @@ public interface iProductService {
 
     List<ProductResponse> getProductsByClassifyId(Long categoryId);
 
-    List<ProductResponse> getProductsByCategoryName(String categoryName);
+    Page<ProductResponse> getProductsByCategoryName(String categoryName, PageRequest pageRequest);
     List<ProductRatingResponse> getRatingProducts();
     List<ProductSize> getProductSizesByProductId(Long productId);
 

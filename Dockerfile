@@ -1,13 +1,11 @@
 FROM maven:3.8.5-openjdk-17-slim AS build
 WORKDIR /app
-COPY ecommerce /app/ecommerce
-RUN mvn package -f /app/ecommerce/pom.xml
+COPY . .
+RUN mvn clean package -DskipTests
 
 FROM openjdk:17-slim
 WORKDIR /app
-COPY --from=build /app/ecommerce/target/ecommerce-0.0.1-SNAPSHOT.jar app.jar
-COPY --from=build /app/ecommerce/uploads uploads
-
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8088
 CMD ["java", "-jar", "app.jar"]
 

@@ -146,8 +146,8 @@ public class ProductService implements iProductService {
     }
 
     @Override
-    public List<ProductResponse> getProductsByCategoryName(String categoryName) {
-        return productRepository.findAllByCategoryName(categoryName).stream().map(ProductResponse::fromProduct).toList();
+    public Page<ProductResponse> getProductsByCategoryName(String categoryName,PageRequest request) {
+        return productRepository.findAllByCategoryName(categoryName,request).map(ProductResponse::fromProduct);
     }
 
     @Override
