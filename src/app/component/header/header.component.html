@@ -197,7 +197,7 @@
             />
             <button
               type="submit"
-              (click)="searchProduct()"
+              (click)="searchProduct(keyword)"
               class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               <svg
@@ -243,33 +243,13 @@
             <li
               class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
             >
-              <a href="">Bộ sưu tập</a>
-              <i class="fa-solid fa-angle-right"></i>
-              <div class="bg-white absolute left-full top-0">
-                <ul class="menu3">
-                  <li
-                    class="p-3 border border-b-2 flex justify-between items-center"
-                  >
-                    <a href="">VLINE COLLECTION</a>
-                  </li>
-                  <li
-                    class="p-3 border border-b-2 flex justify-between items-center"
-                  >
-                    <a href="">CHIPPO COLLECTION</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              class="item-menu_2 relative p-3 border-b-2 flex justify-between items-center"
-            >
               <a href="">Phòng Ngủ</a><i class="fa-solid fa-angle-right"> </i>
               <div class="bg-white absolute left-full top-0">
                 <ul class="menu3">
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
                   >
-                    <a href="">Tủ Quần Áo</a>
+                    <a (click)="filterCategory('Tủ Quần Áo')">Tủ Quần Áo</a>
                   </li>
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
@@ -305,12 +285,14 @@
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
                   >
-                    <a href="">Ghế sofa</a>
+                    <a (click)="filterCategory('Ghế Sofa')">Ghế Sofa</a>
                   </li>
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
                   >
-                    <a href="">Bàn Sofa - Bàn trà</a>
+                    <a (click)="filterCategory('Bàn Sofa - Bàn Trà')"
+                      >Bàn Sofa - Bàn Trà</a
+                    >
                   </li>
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
@@ -345,7 +327,7 @@
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
                   >
-                    <a (click)="filterCategory('Bộ Bàn Ăn ')">Bộ Bàn Ăn</a>
+                    <a (click)="filterCategory('Bộ Bàn Ăn')">Bộ Bàn Ăn</a>
                   </li>
                 </ul>
               </div>
@@ -372,7 +354,7 @@
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
                   >
-                    <a>Tủ kệ</a>
+                    <a (click)="filterCategory('Kệ gỗ')">Tủ kệ</a>
                   </li>
                 </ul>
               </div>
@@ -386,17 +368,17 @@
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
                   >
-                    <a href="">Nệm Foam</a>
+                    <a (click)="filterCategory('Nệm Foam')">Nệm Foam</a>
                   </li>
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
                   >
-                    <a href="">Nệm lò xo</a>
+                    <a (click)="filterCategory('Nệm lò xo')">Nệm lò xo</a>
                   </li>
                   <li
                     class="p-3 border border-b-2 flex justify-between items-center"
                   >
-                    <a href="">Nệm cao su</a>
+                    <a (click)="filterCategory('Nệm cao su')">Nệm cao su</a>
                   </li>
                 </ul>
               </div>

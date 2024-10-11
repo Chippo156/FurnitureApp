@@ -50,7 +50,6 @@ export class ProductFavoriteComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,
-    private commentService: CommmentService,
     private orderService: OrderService
   ) {
     this.selectedCategoryId = 0;

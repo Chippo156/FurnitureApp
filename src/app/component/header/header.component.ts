@@ -37,8 +37,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   keyword: string = '';
   constructor(
     private userService: UserService,
-    private ngbPopoverConfig: NgbPopoverConfig,
-    private tokenService: TokenService,
     private router: Router,
     private cartService: CartService,
     private authService: AuthService,
@@ -120,10 +118,22 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
   }
 
-  searchProduct() {}
+  searchProduct(value: string) {
+    this.router
+      .navigate(['/products'], { queryParams: { keyword: value } })
+      .then(() => {
+        this.renderer.setProperty(
+          window.location,
+          'href',
+          window.location.href
+        );
+      });
+  }
   filterCategory(categoryName: string) {
     this.router
-      .navigate(['/products', { category: categoryName, filter: 'true' }])
+      .navigate(['/products'], {
+        queryParams: { categoryName: categoryName, filter: true },
+      })
       .then(() => {
         this.renderer.setProperty(
           window.location,

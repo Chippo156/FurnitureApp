@@ -56,8 +56,15 @@ export class ProductService {
       }
     );
   }
-  getProductByCategoryName(categoryName: string): Observable<any> {
-    const params = new HttpParams().set('categoryName', categoryName);
+  getProductByCategoryName(
+    categoryName: string,
+    page: number,
+    limit: number
+  ): Observable<any> {
+    const params = new HttpParams()
+      .set('categoryName', categoryName)
+      .set('page', page.toString())
+      .set('limit', limit.toString());
     return this.http.get<Product[]>(`${this.apiGetProducts}/by-category-name`, {
       params,
     });

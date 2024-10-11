@@ -67,9 +67,28 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     debugger;
-    const filter = this.route.snapshot.paramMap.get('filter') || 'false';
-    const categoryName = this.route.snapshot.paramMap.get('category') || '';
+    let categoryName = '';
+    let filter = '';
+    let productFind = '';
+    this.route.queryParams.subscribe((params) => {
+      categoryName = params['categoryName'] || '';
+      filter = params['filter'] || 'false';
+      productFind = params['keyword'] || '';
+    });
+
+    console.log(filter);
+
     window.scrollTo(0, 0);
+    if (productFind && productFind.length > 0) {
+      this.keyword = productFind;
+      this.getProducts(
+        this.keyword,
+        this.selectedCategoryId,
+        this.currentPage,
+        this.itemsPerPage
+      );
+    }
+
     if (filter === 'true') {
       this.filterProduct(categoryName);
     } else {
@@ -80,7 +99,6 @@ export class ProductComponent implements OnInit {
         this.itemsPerPage
       );
       this.getCountQuantityProduct();
-      // this.getColors();
       this.getAllCategory();
     }
   }
@@ -291,56 +309,61 @@ export class ProductComponent implements OnInit {
       this.hoveredImage = product.thumbnail;
     }
   }
-  getProductByCategoryName(categoryName: string) {
-    this.productService.getProductByCategoryName(categoryName).subscribe({
-      next: (response: any) => {
-        debugger;
-        response.productResponses.forEach((product: Product) => {
-          let flag = 0;
-          product.product_images.forEach((product_images: ProductImage) => {
-            if (flag === 1) {
-              product.url = product_images.image_url;
-            } else if (flag === 2) {
-              return;
+  getProductByCategoryName(categoryName: string, page: number, limit: number) {
+    this.productService
+      .getProductByCategoryName(categoryName, page, limit)
+      .subscribe({
+        next: (response: any) => {
+          debugger;
+          response.productResponses.forEach((product: Product) => {
+            let flag = 0;
+            product.product_images.forEach((product_images: ProductImage) => {
+              if (flag === 1) {
+                product.url = product_images.image_url;
+              } else if (flag === 2) {
+                return;
+              }
+              flag++;
+            });
+            this.colors.add(product.code_color);
+            if (product.product_sale === null) {
+              product.product_sale = {
+                id: 0,
+                description: '',
+                sale: 0,
+                newProduct: true,
+                startDate: new Date(),
+                endDate: new Date(),
+              };
             }
-            flag++;
           });
-
-          if (product.product_sale === null) {
-            product.product_sale = {
-              id: 0,
-              description: '',
-              sale: 0,
-              newProduct: true,
-              startDate: new Date(),
-              endDate: new Date(),
-            };
+          this.products = response.productResponses;
+          if (this.products.length === 0) {
+            this.products = this.productsFilter;
+            this.totalPages = this.totalPageFilter;
           }
-        });
-        this.products = response.productResponses;
-        if (this.products.length === 0) {
-          this.products = this.productsFilter;
-          this.totalPages = this.totalPageFilter;
-        }
-        if (response.totalPage >= 0 && response.productResponses.length > 0) {
-          this.totalPages = response.totalPage;
-        }
+          if (response.totalPage >= 0 && response.productResponses.length > 0) {
+            this.totalPages = response.totalPage;
+          }
 
-        this.visiblePages = this.generateVisiblePages(
-          this.currentPage,
-          this.totalPages
-        );
-      },
-      complete: () => {
-        debugger;
-        this.getProductsRating();
-        this.checkLoad = true;
-      },
-      error: (error) => {
-        debugger;
-        console.log(error);
-      },
-    });
+          this.visiblePages = this.generateVisiblePages(
+            this.currentPage,
+            this.totalPages
+          );
+        },
+        complete: () => {
+          debugger;
+          this.getProductsRating();
+          this.getCountQuantityProduct();
+          this.getAllCategory();
+
+          this.checkLoad = true;
+        },
+        error: (error) => {
+          debugger;
+          console.log(error);
+        },
+      });
   }
   filterProductByCategory() {
     let categoryName = (
@@ -349,7 +372,7 @@ export class ProductComponent implements OnInit {
       ) as HTMLInputElement
     )?.value;
     console.log(categoryName);
-    this.getProductByCategoryName(categoryName);
+    this.getProductByCategoryName(categoryName, this.currentPage, 8);
     if (categoryName === undefined) {
       this.products = this.productsFilter;
       console.log(this.productsFilter);
@@ -510,7 +533,17 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  filterProduct(categoryName: string) {
-    this.getProductByCategoryName(categoryName);
+  filterProduct(categoryName: string, page: number = 0, limit: number = 8) {
+    this.getProductByCategoryName(categoryName, page, limit);
+  }
+
+  searchProduct(value: string) {
+    this.keyword = value;
+    this.getProducts(
+      this.keyword,
+      this.selectedCategoryId,
+      this.currentPage,
+      this.itemsPerPage
+    );
   }
 }
