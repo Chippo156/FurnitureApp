@@ -1,14 +1,16 @@
-FROM maven:3.8.5-openjdk-17-slim AS build
+FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
+
 COPY . .
 RUN mvn clean package -DskipTests
-
-FROM openjdk:17-slim
+# Run stage
+FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8088
-CMD ["java", "-jar", "app.jar"]
 
+COPY --from=build /app/target/DrComputer-0.0.1-SNAPSHOT.war drcomputer.war
+EXPOSE 8088
+
+ENTRYPOINT ["java","-jar","drcomputer.war"]
 
 #docker build -t ecommerce:1.0.4 -f ./DockerfileJavaSpring .
 #docker login
