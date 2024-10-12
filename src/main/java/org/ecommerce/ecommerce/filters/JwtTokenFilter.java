@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotNull;
 import org.ecommerce.ecommerce.components.JwtTokenUtils;
-import org.ecommerce.ecommerce.configurations.AuthenticationSuccessHandle;
+//import org.ecommerce.ecommerce.configurations.AuthenticationSuccessHandle;
 import org.ecommerce.ecommerce.models.User;
 import org.ecommerce.ecommerce.repository.SocialAccountRepository;
 import org.slf4j.Logger;
@@ -53,10 +53,10 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             final String phoneNumber = jwtTokenUtils.extractPhoneNumber(token);
             final Long userId = jwtTokenUtils.extractUserId(token);
 
-            if(socialAccountRepository.findByUserId(userId)){
-                filterChain.doFilter(request, response);
-                return;
-            }
+//            if(socialAccountRepository.findByUserId(userId)){
+//                filterChain.doFilter(request, response);
+//                return;
+//            }
             if (phoneNumber != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 User userDetails = (User) userDetailsService.loadUserByUsername(phoneNumber);
                 if (jwtTokenUtils.validateToken(token, userDetails)) {
