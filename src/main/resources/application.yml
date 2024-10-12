@@ -1,19 +1,26 @@
 server:
   port: 8088
 
-spring:
-  application:
-    name: ecommerce
-  datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/eCommerce?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
-    username: root
-    password: ${MYSQL_ROOT_PASSWORD:Abc123456789@}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+#spring:
+#  application:
+#    name: ecommerce
+#  datasource:
+#    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/eCommerce?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+#    username: root
+#    password: ${MYSQL_ROOT_PASSWORD:Abc123456789@}
+#    driver-class-name: com.mysql.cj.jdbc.Driver
   #    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/eCommerce}
   #    username: postgres
   #    password: 12345678
   #    driver-class-name: org.postgresql.Driver
-
+spring:
+  application:
+    name: ecommerce
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://root:cGiLVmrRCJGlMJzFwJIDEYUDlkUTqHdO@autorack.proxy.rlwy.net:25001/railway}
+    username: root
+    password: ${MYSQL_ROOT_PASSWORD:cGiLVmrRCJGlMJzFwJIDEYUDlkUTqHdO}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
     hibernate:
