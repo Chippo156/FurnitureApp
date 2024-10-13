@@ -1,5 +1,6 @@
 export class AppContants {
-  private static redirect_uri = 'https://furniture-app-delta.vercel.app/';
+  private static redirect_uri =
+    'https://furniture-app-chippo156s-projects.vercel.app/';
   public static URL_GOOGLE =
     'https://furnitureapp-x2c8.onrender.com/oauth2/authorization/google' +
     '?redirect-uri=' +
