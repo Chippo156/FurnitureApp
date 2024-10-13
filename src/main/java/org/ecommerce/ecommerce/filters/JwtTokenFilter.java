@@ -53,10 +53,10 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             final String phoneNumber = jwtTokenUtils.extractPhoneNumber(token);
             final Long userId = jwtTokenUtils.extractUserId(token);
 
-//            if(socialAccountRepository.findByUserId(userId)){
-//                filterChain.doFilter(request, response);
-//                return;
-//            }
+            if(socialAccountRepository.findByUserId(userId)){
+                filterChain.doFilter(request, response);
+                return;
+            }
             if (phoneNumber != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 User userDetails = (User) userDetailsService.loadUserByUsername(phoneNumber);
                 if (jwtTokenUtils.validateToken(token, userDetails)) {
