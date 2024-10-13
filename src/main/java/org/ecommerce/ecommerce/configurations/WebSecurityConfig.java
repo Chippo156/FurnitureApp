@@ -33,8 +33,8 @@ public class WebSecurityConfig {
     private String apiPrefix;
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
-//    @Autowired
-//    private AuthenticationSuccessHandle handle;
+    @Autowired
+    private AuthenticationSuccessHandle handle;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -190,11 +190,10 @@ public class WebSecurityConfig {
                 httpSecurityCorsConfigurer.configurationSource(source);
             }
         });
-//        http.oauth2Login(oauth2 -> {
-//                    oauth2.successHandler(handle);
-//                }
-//        );
+        http.oauth2Login(oauth2 -> {
+                    oauth2.successHandler(handle);
+                }
+        );
         return http.build();
     }
-
 }
