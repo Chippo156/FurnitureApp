@@ -99,8 +99,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             // Allow access to %s/orders
             return true;
         }
-
-
         if (path.equals(String.format("%s/categories", apiPrefix))
                 && method.equals("GET")) {
             // Allow access to %s/orders

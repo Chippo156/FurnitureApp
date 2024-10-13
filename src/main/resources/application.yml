@@ -61,8 +61,11 @@ spring:
   data:
     redis:
       use-redis-cache: false
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
+      host: ${REDIS_HOST:autorack.proxy.rlwy.net}
+      port: ${REDIS_PORT:46406}
+      username: default
+      password: vRdrHXmIBQYnkqLbTrMznbVdcBosCZzq
+      url: redis://default:vRdrHXmIBQYnkqLbTrMznbVdcBosCZzq@autorack.proxy.rlwy.net:46406
 api:
   prefix: api/v1
 
