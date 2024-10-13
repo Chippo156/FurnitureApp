@@ -153,6 +153,6 @@ public class AuthenticationSuccessHandle implements AuthenticationSuccessHandler
                 token = jwtTokenUtils.generateToken(socialAccount.get().getUser());
             }
         }
-        new DefaultRedirectStrategy().sendRedirect(request, response, "https://furniture-app-git-front-end-chippo156s-projects.vercel.app/?access_token=" + token+"&providerId="+id);
+        new DefaultRedirectStrategy().sendRedirect(request, response, "https://furniture-app-delta.vercel.app/?access_token=" + token+"&providerId="+id);
     }
 }
