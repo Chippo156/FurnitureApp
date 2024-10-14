@@ -10,7 +10,7 @@
             <!-- daily rollover -->
             <fileNamePattern>src/main/resources/logs/application.%d{yyyy-MM-dd}.log</fileNamePattern>
             <!-- keep 30 days' worth of history -->
-            <maxHistory>7</maxHistory>
+            <maxHistory>1</maxHistory>
         </rollingPolicy>
     </appender>
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">

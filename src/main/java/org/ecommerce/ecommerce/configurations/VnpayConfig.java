@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,10 +26,8 @@ public class VnpayConfig {
     @Getter
     @Value("${payment.vnPay.hashSecret}")
     private String secretKey;
-
     @Value("${payment.vnPay.version}")
     private String vnp_Version;
-
     @Value("${payment.vnPay.command}")
     private String vnp_Command;
     @Value("${payment.vnPay.order_type}")
@@ -44,13 +45,17 @@ public class VnpayConfig {
         vnPayParamsMap.put("vnp_OrderType", orderType);
         vnPayParamsMap.put("vnp_ReturnUrl", vnp_ReturnUrl);
 
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
-        String vnp_CreateDate = formatter.format(calendar.getTime());
+        ZoneId vnZoneId = ZoneId.of("Asia/Ho_Chi_Minh");
+        ZonedDateTime now = ZonedDateTime.now(vnZoneId);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+
+        String vnp_CreateDate = now.format(formatter);
         vnPayParamsMap.put("vnp_CreateDate", vnp_CreateDate);
-        calendar.add(Calendar.MINUTE, 30);
-        String vnp_ExpireDate = formatter.format(calendar.getTime());
+
+        String vnp_ExpireDate = now.plusMinutes(30).format(formatter);
         vnPayParamsMap.put("vnp_ExpireDate", vnp_ExpireDate);
+
         return vnPayParamsMap;
     }
 }
