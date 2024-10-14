@@ -13,8 +13,6 @@ import java.util.TimeZone;
 
 @Configuration
 public class VnpayConfig {
-
-
     @Getter
     @Value("${payment.vnPay.url}")
     private String vnp_PayUrl;
@@ -50,7 +48,7 @@ public class VnpayConfig {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
         String vnp_CreateDate = formatter.format(calendar.getTime());
         vnPayParamsMap.put("vnp_CreateDate", vnp_CreateDate);
-        calendar.add(Calendar.MINUTE, 15);
+        calendar.add(Calendar.MINUTE, 30);
         String vnp_ExpireDate = formatter.format(calendar.getTime());
         vnPayParamsMap.put("vnp_ExpireDate", vnp_ExpireDate);
         return vnPayParamsMap;
