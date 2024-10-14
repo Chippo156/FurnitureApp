@@ -45,6 +45,7 @@ spring:
             scope:
               - email
               - public_profile
+            redirect-uri: https://furnitureapp-x2c8.onrender.com/login/oauth2/code/facebook
           github:
             client-id: Ov23li41nPCmUpuGGQBF
             client-secret:  e02fae1ef78125e65222edef7de0071da46040f0
