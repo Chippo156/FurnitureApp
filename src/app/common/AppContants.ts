@@ -9,7 +9,5 @@ export class AppContants {
     '?redirect-uri=' +
     AppContants.redirect_uri;
   public static URL_GITHUB =
-    'https://furnitureapp-x2c8.onrender.com/oauth2/authorization/github' +
-    '?redirect-uri=' +
-    AppContants.redirect_uri;
+    'https://furnitureapp-x2c8.onrender.com/oauth2/authorization/github';
 }

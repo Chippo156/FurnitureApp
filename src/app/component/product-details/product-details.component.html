@@ -99,9 +99,7 @@
                 data-carousel="static"
               >
                 <!-- Carousel wrapper -->
-                <div
-                  class="relative w-full h-full overflow-hidden rounded-lg md:h-96"
-                >
+                <div class="relative w-full h-full rounded-lg md:h-96">
                   <!-- Item 1 -->
                   <div
                     class="hidden duration-100 ease-in-out"
@@ -344,35 +342,44 @@
               <h3 class="text-xl font-bold text-gray-800">Choose a Color</h3>
               <div class="flex flex-wrap gap-4 mt-4">
                 <button
-                  class="color"
+                  class="color w-10 h-10 border border-black hover:border-gray-800 rounded-md shrink-0"
                   *ngFor="let color of colors"
                   [style.background-color]="color"
                   [ngClass]="{ selectedColor: color === selectedColor }"
                   (click)="clickColor(color)"
                   type="button"
-                  class="w-10 h-10 border border-black hover:border-gray-800 rounded-md shrink-0"
                 ></button>
               </div>
             </div>
 
             <hr class="my-8" />
             <h3 class="text-xl font-bold text-gray-800">Quantity</h3>
-            <div class="min-w-[200px] flex flex-wrap gap-4 mt-4">
-              <button (click)="decreaseQuantity()">-</button>
+            <div class="min-w-[200px] flex flex-wrap gap-4 mt-4 items-center">
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-800 rounded-md"
+                (click)="decreaseQuantity()"
+              >
+                -
+              </button>
               <input
                 type="text"
                 value="{{ quantity }}"
                 [(ngModel)]="quantity"
-                style="border: 1px solid black"
+                class="w-16 text-center border border-gray-800 rounded-md"
               />
-              <button (click)="increaseQuantity()">+</button>
+              <button
+                class="w-10 h-10 flex items-center justify-center border border-gray-800 rounded-md"
+                (click)="increaseQuantity()"
+              >
+                +
+              </button>
             </div>
             <hr class="my-8" />
-            <div class="flex flex-wrap gap-4">
+            <div class="flex gap-4 justify-center">
               <button
                 (click)="buyNow()"
                 type="button"
-                class="min-w-[200px] px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded-md"
+                class="w-full sm:w-auto min-w-[50%] px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded-md"
               >
                 Buy now
               </button>
@@ -381,7 +388,7 @@
                 data-modal-toggle="successModal"
                 (click)="addToCart()"
                 type="button"
-                class="min-w-[200px] px-4 py-2.5 border border-gray-800 bg-transparent hover:bg-gray-50 text-gray-800 text-sm font-semibold rounded-md"
+                class="w-full sm:w-auto min-w-[50%] px-4 py-2.5 border border-gray-800 bg-transparent hover:bg-gray-50 text-gray-800 text-sm font-semibold rounded-md"
               >
                 Add to cart
               </button>
