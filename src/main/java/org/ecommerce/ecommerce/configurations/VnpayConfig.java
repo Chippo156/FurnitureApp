@@ -44,7 +44,7 @@ public class VnpayConfig {
         vnPayParamsMap.put("vnp_OrderType", orderType);
         vnPayParamsMap.put("vnp_ReturnUrl", vnp_ReturnUrl);
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+7"));
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
         String vnp_CreateDate = formatter.format(calendar.getTime());
         vnPayParamsMap.put("vnp_CreateDate", vnp_CreateDate);

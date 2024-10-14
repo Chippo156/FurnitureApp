@@ -84,7 +84,7 @@ payment:
     url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
     tmnCode: 58X4B4HP
     hashSecret: VRLDWNVWDNPCOEPBZUTWSEDQAGXJCNGZ
-    returnUrl: https://furnitureapp-x2c8.onrender.com/api/v1/payment/vnpay-callback
+    returnUrl: https://localhost:8088/api/v1/payment/vnpay-callback
     version: 2.1.0
     command: pay
-    order_type: other
+    order_type: others

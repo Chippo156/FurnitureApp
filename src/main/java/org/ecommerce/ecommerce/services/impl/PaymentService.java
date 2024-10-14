@@ -16,8 +16,9 @@ public class PaymentService {
 
     public PaymentDTO.VNPayResponse createVnPayPayment(HttpServletRequest request)
     {
-        double amount  = Double.parseDouble(request.getParameter("amount"))*100L;
+        double amount  = Math.floor(Double.parseDouble(request.getParameter("amount"))) * 100;
         Long roundAmount = Math.round(amount);
+
         String  bankCode = request.getParameter("bankCode");
         Map<String, String> vnPayParamsMap = vnpayConfig.getVnPayConfig();
         vnPayParamsMap.put("vnp_Amount", String.valueOf(roundAmount));
