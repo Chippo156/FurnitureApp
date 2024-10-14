@@ -18,7 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("${api.prefix}/payment")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://furniture-app-delta.vercel.app/")
 @RequiredArgsConstructor
 public class PaymentController {
 
@@ -38,10 +38,10 @@ public class PaymentController {
             order.setStatus("processing");
             order.setActive(true);
             orderService.updateOrder(orderId,modelMapper.map(order, OrderDTO.class));
-            response.sendRedirect("http://localhost:4200/?paymentStatus=00");
+            response.sendRedirect("https://furniture-app-delta.vercel.app/?paymentStatus=00");
             return ResponseEntity.ok(response.getStatus());
         }else{
-            response.sendRedirect("http://localhost:4200/?paymentStatus=01");
+            response.sendRedirect("https://furniture-app-delta.vercel.app/?paymentStatus=01");
             return ResponseEntity.ok("Thanh toán thất bại");
         }
     }
